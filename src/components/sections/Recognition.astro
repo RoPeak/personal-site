@@ -30,14 +30,14 @@ const typeAccent: Record<string, string> = {
           style={`transition-delay: ${i * 0.1}s; --type-color: ${typeAccent[item.type]};`}
         >
           <!-- Badge / icon -->
-          <div class="shrink-0 w-11 h-11 flex items-center justify-center rounded-lg overflow-hidden bg-[var(--color-surface-raised)] border border-[var(--color-border)]">
+          <div class="shrink-0 w-16 h-16 flex items-center justify-center rounded-lg overflow-hidden bg-[var(--color-surface-raised)] border border-[var(--color-border)]">
             {item.badgeImage ? (
               <img
                 src={item.badgeImage}
                 alt={`${item.title} badge`}
-                width="44"
-                height="44"
-                class="w-9 h-9 object-contain"
+                width="56"
+                height="56"
+                class="w-14 h-14 object-contain"
                 loading="lazy"
               />
             ) : (
@@ -73,6 +73,16 @@ const typeAccent: Record<string, string> = {
                 Verify credential &rarr;
               </a>
             )}
+            {item.links && item.links.map((link) => (
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-1.5 inline-block text-xs text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
+              >
+                {link.label} &rarr;
+              </a>
+            ))}
           </div>
         </div>
       ))}

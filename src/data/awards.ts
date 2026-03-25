@@ -6,6 +6,7 @@ export interface Award {
   description: string;
   badgeImage?: string;
   verifyUrl?: string;
+  links?: { label: string; url: string }[];
   type: "award" | "certification" | "recognition" | "volunteer";
   order: number;
 }
@@ -19,7 +20,7 @@ export const awards: Award[] = [
     description:
       "Validates foundational knowledge of AWS cloud services, architecture, security, and pricing. Valid through February 2029.",
     badgeImage: "/assets/images/aws-certified-cloud-practitioner.png",
-    verifyUrl: "https://aws.amazon.com/verification",
+    verifyUrl: "https://www.credly.com/badges/64cd3136-dee1-46ca-82f7-c93c6af479cc/public_url",
     type: "certification",
     order: 1,
   },
@@ -31,6 +32,16 @@ export const awards: Award[] = [
     description:
       "Shortlisted as a finalist for the Digital Tech Rising Star award at the ScotlandIS Digital Technology Awards 2026 in Glasgow - recognition of early-career impact in the Scottish tech industry.",
     badgeImage: "/assets/images/digital-tech-finalist-badge.jpg",
+    links: [
+      {
+        label: "Announcement post",
+        url: "https://www.linkedin.com/posts/ronan-peacock-556ba2331_im-incredibly-grateful-to-share-that-ive-activity-7422588823596863488-Lh4W",
+      },
+      {
+        label: "Awards night post",
+        url: "https://www.linkedin.com/posts/ronan-peacock-556ba2331_really-proud-to-have-attended-the-scotlandis-activity-7440764131944755200-sWuf",
+      },
+    ],
     type: "recognition",
     order: 2,
   },

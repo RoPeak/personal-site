@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colour palette */
-  --color-bg: #0d1117;
-  --color-surface: #161b22;
-  --color-surface-raised: #1c2128;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.18);
-  --color-border-accent: rgba(99, 102, 241, 0.45);
+  /* Colour palette - dark navy */
+  --color-bg: #0d1520;
+  --color-surface: #152030;
+  --color-surface-raised: #1c2d40;
+  --color-border: rgba(255, 255, 255, 0.10);
+  --color-border-hover: rgba(255, 255, 255, 0.22);
+  --color-border-accent: rgba(14, 165, 233, 0.45);
 
   --color-text: #e6edf3;
   --color-text-muted: #8b949e;
-  --color-text-faint: #484f58;
+  --color-text-faint: #556070;
 
-  --color-accent: #6366f1;
-  --color-accent-hover: #818cf8;
-  --color-accent-muted: rgba(99, 102, 241, 0.12);
-  --color-accent-glow: rgba(99, 102, 241, 0.20);
+  /* Peacock teal accent */
+  --color-accent: #0ea5e9;
+  --color-accent-hover: #38bdf8;
+  --color-accent-muted: rgba(14, 165, 233, 0.12);
+  --color-accent-glow: rgba(14, 165, 233, 0.20);
 
   /* Typography */
   --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -121,7 +122,7 @@ body {
 
 /* Alternating section tint */
 .section-tinted {
-  background-color: rgba(22, 27, 34, 0.5);
+  background-color: rgba(21, 32, 48, 0.6);
 }
 
 /* ------------------------------------------------------------------ */
@@ -178,7 +179,7 @@ body {
 
 /* Gradient text - used for the hero name */
 .text-gradient {
-  background: linear-gradient(135deg, #e6edf3 30%, #818cf8 100%);
+  background: linear-gradient(135deg, #e6edf3 30%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -206,6 +207,6 @@ body {
 
 .card:hover {
   border-color: var(--color-border-accent);
-  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.08), 0 8px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.08), 0 8px 24px rgba(0, 0, 0, 0.25);
   transform: translateY(-2px);
 }

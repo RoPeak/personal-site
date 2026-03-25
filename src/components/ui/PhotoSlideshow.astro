@@ -6,33 +6,29 @@ interface Photo {
 
 interface Props {
   photos: Photo[];
-  /** Seconds each photo is fully visible (crossfade overlap excluded) */
+  /** Seconds each photo is fully visible */
   duration?: number;
   class?: string;
 }
 
-const { photos, duration = 4, class: className = '' } = Astro.props;
+const { photos, duration = 3, class: className = '' } = Astro.props;
 const count = photos.length;
-
-// Total cycle = count * duration seconds.
-// Each slide occupies (1/count) of the cycle.
-// Within that slice: 15% fade in, 55% hold, 15% fade out, 15% off.
 const total = count * duration;
 const slicePct = 100 / count;
 
+// Per-slice: 10% fade in, 60% hold, 10% fade out, 20% gap
+// Timing is fully encoded in keyframe percentages - no animation-delay needed
 function getStops(i: number) {
   const base = i * slicePct;
   return {
-    fadeIn:  +(base + slicePct * 0.15).toFixed(2),
+    fadeIn:  +(base + slicePct * 0.10).toFixed(2),
     holdEnd: +(base + slicePct * 0.70).toFixed(2),
-    fadeOut: +(base + slicePct * 0.85).toFixed(2),
+    fadeOut: +(base + slicePct * 0.80).toFixed(2),
   };
 }
 
-// Build the CSS string in the frontmatter so it can be injected via set:html
 const dynamicCSS = photos.map((_, i) => {
   const s = getStops(i);
-  // Slide 0 starts at opacity 1 (visible on load), others start at 0
   const startOpacity = i === 0 ? 1 : 0;
   return `
 @keyframes slideshow-${i} {
@@ -43,10 +39,7 @@ const dynamicCSS = photos.map((_, i) => {
   100%       { opacity: 0; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .slide-${i} {
-    animation-name: slideshow-${i};
-    animation-delay: ${i * duration}s;
-  }
+  .slide-${i} { animation-name: slideshow-${i}; }
 }`;
 }).join('\n');
 ---
@@ -85,7 +78,6 @@ const dynamicCSS = photos.map((_, i) => {
     opacity: 0;
   }
 
-  /* Fallback: first slide always visible */
   .slide-0 {
     opacity: 1;
   }
@@ -100,5 +92,4 @@ const dynamicCSS = photos.map((_, i) => {
   }
 </style>
 
-<!-- Per-slide keyframes generated from component props -->
 <style set:html={dynamicCSS} />
