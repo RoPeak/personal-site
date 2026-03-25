@@ -12,6 +12,6 @@ export const site = {
   cvPath: "/assets/docs/ronan-peacock-cv.pdf",
   location: "Glasgow, Scotland",
   openGraph: {
-    image: "/assets/images/og-image.png", // generated in Phase 6
+    image: "/assets/images/og-image.svg",
   },
 } as const;

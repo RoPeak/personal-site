@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="name-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e6edf3"/>
+      <stop offset="100%" style="stop-color:#818cf8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="25%" cy="60%" r="50%">
+      <stop offset="0%" style="stop-color:rgba(99,102,241,0.15)"/>
+      <stop offset="100%" style="stop-color:rgba(99,102,241,0)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Border -->
+  <rect x="1" y="1" width="1198" height="628" rx="0" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+
+  <!-- Accent line -->
+  <rect x="80" y="200" width="3" height="220" rx="2" fill="#6366f1"/>
+
+  <!-- Name -->
+  <text x="112" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="url(#name-grad)">Ronan Peacock</text>
+
+  <!-- Title -->
+  <text x="114" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="500" fill="#8b949e">Software Engineer</text>
+
+  <!-- Tagline -->
+  <text x="114" y="390" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#484f58">4 years industry experience · Graduating first class · University of Glasgow</text>
+
+  <!-- URL -->
+  <text x="114" y="450" font-family="ui-monospace, monospace" font-size="18" fill="#6366f1">ronanpeacock.com</text>
+</svg>
