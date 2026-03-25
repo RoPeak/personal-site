@@ -44,6 +44,20 @@ public/
     docs/       Downloadable PDFs (CV, dissertations)
 ```
 
+## Deployment
+
+Hosted on Cloudflare Pages. To deploy:
+
+1. Push this repo to GitHub.
+2. In the Cloudflare dashboard go to **Workers & Pages > Create > Pages > Connect to Git**.
+3. Select the repo and configure:
+   - **Framework preset:** Astro
+   - **Build command:** `npm run build`
+   - **Build output directory:** `dist`
+4. Add a custom domain (`ronanpeacock.com`) under the Pages project settings after first deploy.
+
+Security headers are set via `public/_headers` and served automatically by Cloudflare Pages.
+
 ## Content
 
 All site content lives in `src/data/` as plain TypeScript files.

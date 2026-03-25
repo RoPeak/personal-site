@@ -17,6 +17,7 @@ const {
 } = Astro.props;
 
 const pageTitle = title ? `${title} - ${site.name}` : `${site.name} - ${site.title}`;
+const canonicalUrl = new URL(Astro.url.pathname, site.url).href;
 ---
 
 <!doctype html>
@@ -26,11 +27,11 @@ const pageTitle = title ? `${title} - ${site.name}` : `${site.name} - ${site.tit
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0d1117" />
-    <link rel="canonical" href={site.url} />
+    <link rel="canonical" href={canonicalUrl} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={site.url} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={`${site.url}${ogImage}`} />
