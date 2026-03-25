@@ -23,6 +23,26 @@ const typeAccent: Record<string, string> = {
   <div class="container">
     <SectionHeading title="Recognition" />
 
+    <!-- Awards night photo banner -->
+    <div class="reveal mb-8" style="transition-delay: 0.05s;">
+      <div class="relative overflow-hidden rounded-xl border border-[var(--color-border)]">
+        <img
+          src="/assets/images/digital-tech-awards-night.jpg"
+          alt="ScotlandIS Digital Technology Awards 2026 - Ronan Peacock as Digital Tech Rising Star finalist"
+          width="1100"
+          height="400"
+          class="w-full object-cover object-top"
+          style="max-height: 280px;"
+          loading="lazy"
+        />
+        <div class="absolute bottom-0 left-0 right-0 px-5 py-3 bg-gradient-to-t from-black/60 to-transparent">
+          <p class="text-xs text-white/80">
+            ScotlandIS Digital Technology Awards 2026 - Digital Tech Rising Star finalist
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="grid sm:grid-cols-2 gap-5">
       {sorted.map((item, i) => (
         <div

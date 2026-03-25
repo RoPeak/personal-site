@@ -19,7 +19,7 @@ export interface Dissertation {
 }
 
 export const degree = {
-  title: "BSc Software Engineering with Human Computer Interaction",
+  title: "BSc (Hons) Software Engineering with Human Computer Interaction",
   institution: "University of Glasgow",
   school: "School of Computing Science",
   expectedGraduation: "July 2026",
