@@ -1,5 +1,12 @@
 ---
 import SectionHeading from '../ui/SectionHeading.astro';
+import PhotoSlideshow from '../ui/PhotoSlideshow.astro';
+
+const lifestylePhotos = [
+  { src: '/assets/images/lifestyle-cyprus.jpg',    alt: 'Ronan in Cyprus' },
+  { src: '/assets/images/lifestyle-flowers.jpg',   alt: '' },
+  { src: '/assets/images/lifestyle-kirremuir.jpg', alt: 'Kirremuir' },
+];
 ---
 
 <section id="about" class="section">
@@ -14,7 +21,7 @@ import SectionHeading from '../ui/SectionHeading.astro';
           I'm a software engineer based in Glasgow, currently in my final year of a BSc in
           Software Engineering with Human Computer Interaction at the University of Glasgow.
           I came into the degree through the Graduate Apprenticeship route, which means I've
-          been working full-time at <a href="https://www.leidos.com/markets/defense" target="_blank" rel="noopener noreferrer" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">Leidos</a> since 2022 alongside my studies.
+          been working full-time at <a href="https://www.leidos.com" target="_blank" rel="noopener noreferrer" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">Leidos</a> since 2022 alongside my studies.
         </p>
         <p>
           Over the past four years I've rotated through four very different engineering
@@ -31,25 +38,15 @@ import SectionHeading from '../ui/SectionHeading.astro';
           and computing.
         </p>
         <p>
-          I'm graduating in July 2026 and am actively looking for my next role. I'm
-          particularly drawn to engineering teams where there's genuine technical depth,
-          interesting problems, and a culture of doing things well.
+          I'm graduating in July 2026 and actively looking for my next role. I'm particularly
+          drawn to engineering teams where there's genuine technical depth, interesting
+          problems, and a culture of doing things well.
         </p>
       </div>
 
-      <!-- Photo -->
+      <!-- Slideshow -->
       <div class="md:col-span-2 reveal" style="transition-delay: 0.15s;">
-        <div class="relative">
-          <img
-            src="/assets/images/lifestyle.jpg"
-            alt=""
-            width="400"
-            height="480"
-            class="w-full object-cover rounded-xl border border-[var(--color-border)] opacity-90"
-            loading="lazy"
-            aria-hidden="true"
-          />
-        </div>
+        <PhotoSlideshow photos={lifestylePhotos} duration={4} />
       </div>
 
     </div>
