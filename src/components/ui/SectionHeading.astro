@@ -10,14 +10,21 @@ const { title, subtitle, id } = Astro.props;
 <div class="mb-12 reveal">
   <h2
     id={id}
-    class="text-3xl md:text-4xl font-bold tracking-tight text-[var(--color-text)] mb-3"
+    class="text-3xl md:text-4xl font-extrabold tracking-tight text-[var(--color-text)] mb-3"
   >
     {title}
   </h2>
   {subtitle && (
-    <p class="text-[var(--color-text-muted)] max-w-xl leading-relaxed">
+    <p class="text-[var(--color-text-muted)] max-w-xl leading-relaxed text-sm md:text-base">
       {subtitle}
     </p>
   )}
-  <div class="mt-4 w-12 h-0.5 bg-[var(--color-accent)] rounded-full"></div>
+  <div class="mt-4 h-px w-20 section-rule" aria-hidden="true"></div>
 </div>
+
+<style>
+  .section-rule {
+    background: linear-gradient(to right, var(--color-accent), rgba(99, 102, 241, 0));
+    border-radius: 1px;
+  }
+</style>

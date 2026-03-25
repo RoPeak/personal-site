@@ -5,8 +5,26 @@ interface Props {
 const { label } = Astro.props;
 ---
 
-<span
-  class="inline-block px-2.5 py-0.5 text-xs font-mono rounded text-[var(--color-text-muted)] bg-[var(--color-surface-raised)] border border-[var(--color-border)] leading-5"
->
+<span class="tech-tag">
   {label}
 </span>
+
+<style>
+  .tech-tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.7rem;
+    font-family: var(--font-mono);
+    line-height: 1.6;
+    border-radius: var(--radius-tag);
+    color: var(--color-text-muted);
+    background-color: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    white-space: nowrap;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .tech-tag:hover {
+    color: var(--color-text);
+    border-color: var(--color-border-hover);
+  }
+</style>

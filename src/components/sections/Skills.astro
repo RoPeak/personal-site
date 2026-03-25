@@ -1,6 +1,5 @@
 ---
 import SectionHeading from '../ui/SectionHeading.astro';
-import TechTag from '../ui/TechTag.astro';
 import { skillGroups } from '../../data/skills';
 ---
 
@@ -8,20 +7,42 @@ import { skillGroups } from '../../data/skills';
   <div class="container">
     <SectionHeading title="Skills" />
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {skillGroups.map((group, i) => (
         <div
-          class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-card)] p-5 reveal"
+          class="card p-5 reveal"
           style={`transition-delay: ${i * 0.07}s`}
         >
-          <h3 class="text-xs font-mono text-[var(--color-accent)] uppercase tracking-widest mb-3">
-            {group.label}
-          </h3>
+          <h3 class="mono-label mb-3">{group.label}</h3>
           <div class="flex flex-wrap gap-1.5">
-            {group.skills.map((skill) => <TechTag label={skill} />)}
+            {group.skills.map((skill) => (
+              <span class="skill-pill">{skill}</span>
+            ))}
           </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .skill-pill {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    font-size: 0.75rem;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    line-height: 1.5;
+    border-radius: 6px;
+    color: var(--color-text-muted);
+    background-color: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+    white-space: nowrap;
+  }
+  .skill-pill:hover {
+    color: var(--color-text);
+    border-color: var(--color-border-accent);
+    background-color: var(--color-accent-muted);
+  }
+</style>

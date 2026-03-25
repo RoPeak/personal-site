@@ -8,49 +8,54 @@ import { degree, academicYears, dissertations } from '../../data/education';
     <SectionHeading title="Education" />
 
     <!-- Degree card -->
-    <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-card)] p-6 mb-8 reveal">
-      <div class="flex flex-wrap items-start justify-between gap-3 mb-2">
-        <h3 class="text-lg font-semibold text-[var(--color-text)]">{degree.title}</h3>
-        <span class="text-xs font-mono text-[var(--color-text-faint)]">Expected {degree.expectedGraduation}</span>
+    <div class="card p-6 mb-6 reveal">
+      <div class="flex flex-wrap items-start justify-between gap-3 mb-1">
+        <div>
+          <h3 class="text-lg font-bold text-[var(--color-text)] mb-0.5">{degree.title}</h3>
+          <p class="text-sm font-semibold text-[var(--color-accent)]">{degree.institution}</p>
+        </div>
+        <div class="text-right shrink-0">
+          <span class="text-xs font-mono text-[var(--color-text-faint)] block">Expected</span>
+          <span class="text-xs font-mono text-[var(--color-text-muted)]">{degree.expectedGraduation}</span>
+        </div>
       </div>
-      <p class="text-sm text-[var(--color-accent)] font-medium mb-1">{degree.institution}</p>
-      <p class="text-xs text-[var(--color-text-faint)] mb-3">{degree.type}</p>
-      <p class="text-sm text-[var(--color-text-muted)]">{degree.standing}</p>
+      <p class="text-xs text-[var(--color-text-faint)] mt-2 mb-3">{degree.type}</p>
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--color-accent-muted)] border border-[rgba(99,102,241,0.2)]">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-[var(--color-accent)]" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        <span class="text-xs font-semibold text-[var(--color-accent)]">{degree.standing}</span>
+      </div>
     </div>
 
-    <!-- Modules (collapsible) -->
-    <div class="mb-10 reveal" style="transition-delay: 0.1s;">
+    <!-- Modules collapsible -->
+    <div class="mb-8 reveal" style="transition-delay: 0.1s;">
       <details class="group">
-        <summary
-          class="cursor-pointer flex items-center justify-between w-full p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-card)] text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-colors list-none"
-          aria-label="Toggle module list"
-        >
+        <summary class="modules-summary">
           <span>Modules studied (Years 1-4)</span>
           <svg
-            class="w-4 h-4 transition-transform duration-200 group-open:rotate-180"
+            class="w-4 h-4 transition-transform duration-200 group-open:rotate-180 shrink-0"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             aria-hidden="true"
           >
-            <polyline points="6 9 12 15 18 9" />
+            <polyline points="6 9 12 15 18 9"/>
           </svg>
         </summary>
-        <div class="mt-2 border border-[var(--color-border)] rounded-[var(--radius-card)] overflow-hidden">
+        <div class="mt-2 card overflow-hidden">
           {academicYears.map((year, i) => (
             <div class={`p-5 ${i < academicYears.length - 1 ? 'border-b border-[var(--color-border)]' : ''}`}>
-              <h4 class="text-xs font-mono text-[var(--color-accent)] uppercase tracking-widest mb-3">
-                {year.label}
-              </h4>
-              <ul class="space-y-1.5">
+              <h4 class="mono-label mb-3">{year.label}</h4>
+              <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-1.5">
                 {year.modules.map((mod) => (
                   <li class="flex items-start gap-2 text-sm text-[var(--color-text-muted)]">
-                    <span class="text-[var(--color-text-faint)] mt-1.5 shrink-0" aria-hidden="true">
-                      <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
-                        <circle cx="3" cy="3" r="3"/>
+                    <span class="text-[var(--color-text-faint)] mt-[7px] shrink-0" aria-hidden="true">
+                      <svg width="5" height="5" viewBox="0 0 5 5" fill="currentColor">
+                        <circle cx="2.5" cy="2.5" r="2.5"/>
                       </svg>
                     </span>
                     <span>
                       {mod.name}
-                      {mod.notes && <span class="text-[var(--color-text-faint)] ml-1.5">- {mod.notes}</span>}
+                      {mod.notes && <span class="text-[var(--color-text-faint)] text-xs ml-1">- {mod.notes}</span>}
                     </span>
                   </li>
                 ))}
@@ -63,25 +68,23 @@ import { degree, academicYears, dissertations } from '../../data/education';
 
     <!-- Dissertations -->
     <div class="reveal" style="transition-delay: 0.2s;">
-      <h3 class="text-sm font-mono text-[var(--color-accent)] uppercase tracking-widest mb-5">
-        Dissertations
-      </h3>
-      <div class="space-y-5">
+      <h3 class="mono-label mb-5">Dissertations</h3>
+      <div class="space-y-4">
         {dissertations.map((d) => (
-          <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-card)] p-6 hover:border-[var(--color-border-hover)] transition-colors duration-200">
+          <div class="card p-6">
             <div class="flex flex-wrap items-start justify-between gap-3 mb-1">
-              <h4 class="text-base font-semibold text-[var(--color-text)] leading-snug max-w-2xl">
+              <h4 class="text-base font-bold text-[var(--color-text)] leading-snug max-w-2xl pr-4">
                 {d.title}
               </h4>
               <span class="text-xs font-mono text-[var(--color-text-faint)] shrink-0">{d.date}</span>
             </div>
-            <p class="text-xs text-[var(--color-accent)] font-medium mb-3">{d.subtitle}</p>
+            <p class="mono-label mb-3">{d.subtitle}</p>
             <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-4">{d.abstract}</p>
             <a
               href={d.pdfPath}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-sm text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors font-medium"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -97,3 +100,27 @@ import { degree, academicYears, dissertations } from '../../data/education';
 
   </div>
 </section>
+
+<style>
+  .modules-summary {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    list-style: none;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .modules-summary::-webkit-details-marker { display: none; }
+  .modules-summary:hover {
+    border-color: var(--color-border-hover);
+    color: var(--color-text);
+  }
+</style>

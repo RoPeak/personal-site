@@ -3,68 +3,97 @@ import SectionHeading from '../ui/SectionHeading.astro';
 import { site } from '../../data/site';
 ---
 
-<section id="contact" class="section">
+<section id="contact" class="section section-tinted">
   <div class="container">
     <SectionHeading title="Contact" />
 
-    <div class="max-w-xl reveal">
-      <p class="text-[var(--color-text-muted)] leading-relaxed mb-8">
+    <div class="max-w-xl">
+      <p class="text-[var(--color-text-muted)] leading-relaxed mb-10 reveal">
         I'm graduating in July 2026 and open to new opportunities. If you're working on
-        something interesting or want to have a conversation about a role, I'd be happy
+        something interesting or want to have a conversation about a role, I'd be glad
         to hear from you.
       </p>
 
       <div class="space-y-3">
-        <a
-          href={`mailto:${site.email}`}
-          class="flex items-center gap-3 group"
-          aria-label={`Email ${site.email}`}
-        >
-          <div class="w-10 h-10 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent)] transition-colors duration-200">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+
+        <!-- Email -->
+        <a href={`mailto:${site.email}`} class="contact-link reveal" style="transition-delay: 0.0s;" aria-label={`Email ${site.email}`}>
+          <span class="contact-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
               <polyline points="22,6 12,13 2,6"/>
             </svg>
-          </div>
-          <span class="text-sm text-[var(--color-text-muted)] group-hover:text-[var(--color-text)] transition-colors duration-200">
-            {site.email}
           </span>
+          <span>{site.email}</span>
         </a>
 
-        <a
-          href={site.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-3 group"
-          aria-label="LinkedIn profile"
-        >
-          <div class="w-10 h-10 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent)] transition-colors duration-200">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <!-- LinkedIn -->
+        <a href={site.linkedin} target="_blank" rel="noopener noreferrer" class="contact-link reveal" style="transition-delay: 0.08s;" aria-label="LinkedIn profile">
+          <span class="contact-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
-          </div>
-          <span class="text-sm text-[var(--color-text-muted)] group-hover:text-[var(--color-text)] transition-colors duration-200">
-            linkedin.com/in/ronan-peacock-556ba2331
           </span>
+          <span>linkedin.com/in/ronan-peacock-556ba2331</span>
+          <svg class="ml-auto shrink-0 text-[var(--color-text-faint)]" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+          </svg>
         </a>
 
-        <a
-          href={site.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-3 group"
-          aria-label="GitHub profile"
-        >
-          <div class="w-10 h-10 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent)] transition-colors duration-200">
+        <!-- GitHub -->
+        <a href={site.github} target="_blank" rel="noopener noreferrer" class="contact-link reveal" style="transition-delay: 0.16s;" aria-label="GitHub profile">
+          <span class="contact-icon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
             </svg>
-          </div>
-          <span class="text-sm text-[var(--color-text-muted)] group-hover:text-[var(--color-text)] transition-colors duration-200">
-            github.com/RoPeak
           </span>
+          <span>github.com/RoPeak</span>
+          <svg class="ml-auto shrink-0 text-[var(--color-text-faint)]" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+          </svg>
         </a>
+
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.875rem 1rem;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  }
+  .contact-link:hover {
+    border-color: var(--color-border-accent);
+    color: var(--color-text);
+    background-color: var(--color-accent-muted);
+    transform: translateX(4px);
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .contact-link:hover .contact-icon {
+    border-color: var(--color-border-accent);
+    color: var(--color-accent);
+  }
+</style>
