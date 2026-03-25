@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ui/ProjectCard.astro';
+import { allProjects } from '../data/projects';
+
+const tier1 = allProjects.filter((p) => p.tier === 1);
+const tier2 = allProjects.filter((p) => p.tier === 2);
+---
+
+<BaseLayout
+  title="Projects"
+  description="All personal projects by Ronan Peacock - software engineer based in Glasgow."
+>
+  <div class="pt-28 pb-20">
+    <div class="container">
+
+      <div class="mb-14">
+        <p class="text-sm font-mono text-[var(--color-accent)] mb-3 tracking-wide">/projects</p>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-text)] mb-4">
+          All Projects
+        </h1>
+        <p class="text-[var(--color-text-muted)] max-w-xl leading-relaxed">
+          Personal projects built outside of work - mostly to explore technologies,
+          solve problems I ran into, or sharpen skills in areas I find interesting.
+        </p>
+      </div>
+
+      <!-- Tier 1 -->
+      <section class="mb-14" aria-labelledby="featured-heading">
+        <h2
+          id="featured-heading"
+          class="text-xs font-mono text-[var(--color-text-faint)] uppercase tracking-widest mb-5"
+        >
+          Featured
+        </h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {tier1.map((project, i) => (
+            <div class="reveal" style={`transition-delay: ${i * 0.08}s`}>
+              <ProjectCard project={project} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Tier 2 -->
+      <section aria-labelledby="more-heading">
+        <h2
+          id="more-heading"
+          class="text-xs font-mono text-[var(--color-text-faint)] uppercase tracking-widest mb-5"
+        >
+          More
+        </h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {tier2.map((project, i) => (
+            <div class="reveal" style={`transition-delay: ${i * 0.08}s`}>
+              <ProjectCard project={project} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="mt-14 pt-10 border-t border-[var(--color-border)]">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+          </svg>
+          Back to home
+        </a>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

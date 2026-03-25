@@ -1,0 +1,77 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import TechTag from '../ui/TechTag.astro';
+import { timeline } from '../../data/timeline';
+
+const sorted = [...timeline].sort((a, b) => a.order - b.order);
+---
+
+<section id="experience" class="section">
+  <div class="container">
+    <SectionHeading
+      title="Experience"
+      subtitle="4 years at Leidos as a Technical Graduate Apprentice, rotating through different engineering disciplines."
+    />
+
+    <div class="relative">
+      <!-- Timeline line -->
+      <div
+        class="absolute left-3.5 top-2 bottom-2 w-px bg-[var(--color-border)] hidden sm:block"
+        aria-hidden="true"
+      ></div>
+
+      <ol class="space-y-10" role="list">
+        {sorted.map((entry, i) => (
+          <li class="relative sm:pl-12 reveal" style={`transition-delay: ${i * 0.1}s`}>
+
+            <!-- Timeline dot -->
+            <div
+              class="absolute left-0 top-1.5 w-7 h-7 rounded-full border-2 border-[var(--color-accent)] bg-[var(--color-bg)] hidden sm:flex items-center justify-center"
+              aria-hidden="true"
+            >
+              <div class="w-2 h-2 rounded-full bg-[var(--color-accent)]"></div>
+            </div>
+
+            <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-card)] p-6 hover:border-[var(--color-border-hover)] transition-colors duration-200">
+
+              <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                <h3 class="text-base font-semibold text-[var(--color-text)]">
+                  {entry.title}
+                </h3>
+                <span class="text-xs font-mono text-[var(--color-text-faint)] shrink-0 mt-0.5">
+                  {entry.period}
+                </span>
+              </div>
+
+              <p class="text-xs text-[var(--color-accent)] font-medium mb-3">
+                Leidos - {entry.location.replace('Leidos, ', '')}
+              </p>
+
+              <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-4">
+                {entry.description}
+              </p>
+
+              <ul class="space-y-1 mb-5">
+                {entry.highlights.map((h) => (
+                  <li class="flex items-start gap-2 text-sm text-[var(--color-text-muted)]">
+                    <span class="text-[var(--color-accent)] mt-1.5 shrink-0" aria-hidden="true">
+                      <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="4"/>
+                      </svg>
+                    </span>
+                    {h}
+                  </li>
+                ))}
+              </ul>
+
+              <div class="flex flex-wrap gap-1.5">
+                {entry.tags.map((tag) => <TechTag label={tag} />)}
+              </div>
+
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>
