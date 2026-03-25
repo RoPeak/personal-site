@@ -10,7 +10,7 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Ronan joined the NWS software team near the beginning of the project and was immediately heavily involved in the key design and development activities driving the software solution at a critical time for the project. It was clear from the outset that he is an extremely competent engineer and was able to tackle complex tasks with little or no assistance, quickly becoming a highly dependable member of the team. His contribution to the NWS project was invaluable and he was a key part of the successful delivery of an important service. Ronan should be extremely proud of his achievements so far, he has a very bright future ahead of him.",
+      "It was clear from the outset that he is an extremely competent engineer and was able to tackle complex tasks with little or no assistance, quickly becoming a highly dependable member of the team. His contribution to the NWS project was invaluable and he was a key part of the successful delivery of an important service.",
     author: "Kevin Burke",
     title: "Team Lead, Next Warning Service (former)",
     company: "Leidos",
@@ -58,7 +58,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "From a line management perspective, Ronan demonstrates exceptional professionalism and is an absolute pleasure to work with. He is a mature, emotionally intelligent team member who consistently conducts himself with integrity. Ronan has developed a strong business acumen to complement his technical expertise and approaches conversations with senior stakeholders with confidence and tact.",
+      "Ronan demonstrates exceptional professionalism and is an absolute pleasure to work with. He is a mature, emotionally intelligent team member who consistently conducts himself with integrity.",
     author: "Catherine Fevre",
     title: "Project Manager",
     company: "Leidos",
