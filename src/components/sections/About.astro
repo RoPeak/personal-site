@@ -1,6 +1,7 @@
 ---
 import SectionHeading from '../ui/SectionHeading.astro';
 import PhotoSlideshow from '../ui/PhotoSlideshow.astro';
+import { site } from '../../data/site';
 
 const lifestylePhotos = [
   { src: '/assets/images/lifestyle-cyprus.jpg',    alt: 'Ronan in Cyprus' },
@@ -21,7 +22,7 @@ const lifestylePhotos = [
           I'm a software engineer based in Glasgow, currently in my final year of a BSc in
           Software Engineering with Human Computer Interaction at the University of Glasgow.
           I came into the degree through the Graduate Apprenticeship route, which means I've
-          been working full-time at <a href="https://www.leidos.com" target="_blank" rel="noopener noreferrer" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors font-medium">Leidos</a> since 2022 alongside my studies.
+          been working full-time at <a href="https://www.leidos.com" target="_blank" rel="noopener noreferrer" class="subtle-link">Leidos</a> since 2022 alongside my studies.
         </p>
         <p>
           Over the past four years I've rotated through four very different engineering
@@ -32,22 +33,51 @@ const lifestylePhotos = [
           to fast-moving frontend delivery.
         </p>
         <p>
-          Outside of Leidos, I build personal projects to explore areas that interest me or
-          that I want to develop further. Most of those are on GitHub.
-        </p>
-        <p>
-          I'm in my final year, graduating in July 2026. Outside of Leidos and university
-          I keep a GitHub full of personal projects, hold a STEM Ambassador certification
-          with PVG clearance, and regularly get into schools to work with pupils on
-          technology and computing.
+          Outside of work I build personal projects to explore areas that interest me - most
+          are on <a href={site.github} target="_blank" rel="noopener noreferrer" class="subtle-link">GitHub</a>.
+          I'm also a certified STEM Ambassador and enjoy getting into schools to work with
+          pupils on technology and computing.
         </p>
       </div>
 
       <!-- Slideshow -->
       <div class="md:col-span-2 reveal" style="transition-delay: 0.15s;">
-        <PhotoSlideshow photos={lifestylePhotos} duration={4} />
+        <PhotoSlideshow photos={lifestylePhotos} />
       </div>
 
     </div>
+
+    <!-- Awards night photo -->
+    <div class="reveal mt-10" style="transition-delay: 0.25s;">
+      <div class="relative overflow-hidden rounded-xl border border-[var(--color-border)] max-w-md">
+        <img
+          src="/assets/images/digital-tech-awards-night.jpg"
+          alt="ScotlandIS Digital Technology Awards 2026 - Ronan Peacock as finalist for Digital Tech Rising Star"
+          width="620"
+          height="400"
+          class="w-full object-cover transition-opacity duration-300 opacity-90 hover:opacity-100"
+          loading="lazy"
+        />
+        <div class="absolute bottom-0 left-0 right-0 px-4 py-3 bg-gradient-to-t from-black/60 to-transparent">
+          <p class="text-xs text-white/80">
+            ScotlandIS Digital Technology Awards 2026 - Digital Tech Rising Star finalist
+          </p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<style>
+  .subtle-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--color-text-faint);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s ease;
+  }
+  .subtle-link:hover {
+    text-decoration-color: var(--color-accent);
+  }
+</style>

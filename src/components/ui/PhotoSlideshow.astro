@@ -8,40 +8,54 @@ interface Props {
   photos: Photo[];
   /** Seconds each photo is fully visible */
   duration?: number;
+  /** Seconds for each crossfade transition */
+  crossfade?: number;
   class?: string;
 }
 
-const { photos, duration = 3, class: className = '' } = Astro.props;
+const { photos, duration = 3, crossfade = 0.5, class: className = '' } = Astro.props;
 const count = photos.length;
 const total = count * duration;
-const slicePct = 100 / count;
 
-// Per-slice: 10% fade in, 60% hold, 10% fade out, 20% gap
-// Timing is fully encoded in keyframe percentages - no animation-delay needed
-function getStops(i: number) {
-  const base = i * slicePct;
-  return {
-    fadeIn:  +(base + slicePct * 0.10).toFixed(2),
-    holdEnd: +(base + slicePct * 0.70).toFixed(2),
-    fadeOut: +(base + slicePct * 0.80).toFixed(2),
-  };
-}
+// fadePct: what fraction of the total cycle the crossfade occupies
+const fadePct = +((crossfade / total) * 100).toFixed(3);
+const slicePct = +(100 / count).toFixed(3);
 
-const dynamicCSS = photos.map((_, i) => {
-  const s = getStops(i);
-  const startOpacity = i === 0 ? 1 : 0;
-  return `
-@keyframes slideshow-${i} {
-  0%         { opacity: ${startOpacity}; }
-  ${s.fadeIn}%  { opacity: 1; }
-  ${s.holdEnd}% { opacity: 1; }
-  ${s.fadeOut}% { opacity: 0; }
-  100%       { opacity: 0; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .slide-${i} { animation-name: slideshow-${i}; }
+// Slide 0: visible at start, fades out at its slot end, then fades BACK IN near 100%
+// to create a seamless loop with slide N-1. No animation-delay used.
+function buildKeyframes(i: number): string {
+  if (i === 0) {
+    const holdEnd     = +(slicePct - fadePct).toFixed(2);
+    const fadeEnd     = +slicePct.toFixed(2);
+    const loopFadeIn  = +(100 - fadePct).toFixed(2);
+    return `@keyframes ss-0 {
+  0%           { opacity: 1; }
+  ${holdEnd}%  { opacity: 1; }
+  ${fadeEnd}%  { opacity: 0; }
+  ${loopFadeIn}% { opacity: 0; }
+  100%         { opacity: 1; }
 }`;
-}).join('\n');
+  }
+
+  const fadeInStart = +(i * slicePct - fadePct).toFixed(2);
+  const visible     = +(i * slicePct).toFixed(2);
+  const holdEnd     = +((i + 1) * slicePct - fadePct).toFixed(2);
+  const fadeEnd     = +((i + 1) * slicePct).toFixed(2);
+  return `@keyframes ss-${i} {
+  0%              { opacity: 0; }
+  ${fadeInStart}% { opacity: 0; }
+  ${visible}%     { opacity: 1; }
+  ${holdEnd}%     { opacity: 1; }
+  ${fadeEnd}%     { opacity: 0; }
+  100%            { opacity: 0; }
+}`;
+}
+
+const dynamicCSS = photos.map((_, i) => `
+${buildKeyframes(i)}
+@media (prefers-reduced-motion: no-preference) {
+  .slide-${i} { animation-name: ss-${i}; }
+}`).join('\n');
 ---
 
 <div class={`slideshow ${className}`} aria-label="Photo slideshow">
@@ -78,9 +92,8 @@ const dynamicCSS = photos.map((_, i) => {
     opacity: 0;
   }
 
-  .slide-0 {
-    opacity: 1;
-  }
+  /* First slide visible before JS/animation kicks in */
+  .slide-0 { opacity: 1; }
 
   @media (prefers-reduced-motion: no-preference) {
     .slide {

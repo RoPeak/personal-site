@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colour palette - dark navy */
-  --color-bg: #0d1520;
-  --color-surface: #152030;
-  --color-surface-raised: #1c2d40;
-  --color-border: rgba(255, 255, 255, 0.10);
-  --color-border-hover: rgba(255, 255, 255, 0.22);
-  --color-border-accent: rgba(14, 165, 233, 0.45);
+  /* Light mode palette */
+  --color-bg:           #f8fafc;
+  --color-surface:      #ffffff;
+  --color-surface-raised: #f1f5f9;
+  --color-border:       rgba(0, 0, 0, 0.08);
+  --color-border-hover: rgba(0, 0, 0, 0.16);
+  --color-border-accent: rgba(14, 165, 233, 0.40);
 
-  --color-text: #e6edf3;
-  --color-text-muted: #8b949e;
-  --color-text-faint: #556070;
+  --color-text:         #0f172a;
+  --color-text-muted:   #475569;
+  --color-text-faint:   #94a3b8;
 
   /* Peacock teal accent */
-  --color-accent: #0ea5e9;
-  --color-accent-hover: #38bdf8;
-  --color-accent-muted: rgba(14, 165, 233, 0.12);
-  --color-accent-glow: rgba(14, 165, 233, 0.20);
+  --color-accent:       #0ea5e9;
+  --color-accent-hover: #0284c7;
+  --color-accent-muted: rgba(14, 165, 233, 0.10);
+  --color-accent-glow:  rgba(14, 165, 233, 0.15);
 
   /* Typography */
   --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -71,6 +71,19 @@ body {
 /* Layout utilities                                                     */
 /* ------------------------------------------------------------------ */
 
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--color-accent);
+  z-index: 100;
+  transition: width 0.05s linear;
+  pointer-events: none;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -101,13 +114,13 @@ body {
 }
 
 .section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
 }
 @media (min-width: 768px) {
   .section {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 }
 
@@ -122,14 +135,13 @@ body {
 
 /* Alternating section tint */
 .section-tinted {
-  background-color: rgba(21, 32, 48, 0.6);
+  background-color: rgba(241, 245, 249, 0.8);
 }
 
 /* ------------------------------------------------------------------ */
 /* Animations                                                           */
 /* ------------------------------------------------------------------ */
 
-/* Scroll reveal */
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -140,7 +152,6 @@ body {
   transform: translateY(0);
 }
 
-/* Hero entrance - triggers immediately on load */
 @keyframes heroFadeIn {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -150,13 +161,11 @@ body {
   animation: heroFadeIn 0.65s ease both;
 }
 
-/* Subtle pulse on the hero glow */
 @keyframes glowPulse {
-  0%, 100% { opacity: 0.6; }
+  0%, 100% { opacity: 0.5; }
   50%       { opacity: 1; }
 }
 
-/* Reduced motion overrides */
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
@@ -177,15 +186,14 @@ body {
 /* Typography helpers                                                   */
 /* ------------------------------------------------------------------ */
 
-/* Gradient text - used for the hero name */
+/* Gradient text - dark-to-teal on light background */
 .text-gradient {
-  background: linear-gradient(135deg, #e6edf3 30%, #38bdf8 100%);
+  background: linear-gradient(135deg, #0f172a 30%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Mono badge - for small labels like section numbers or tags */
 .mono-label {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -207,6 +215,6 @@ body {
 
 .card:hover {
   border-color: var(--color-border-accent);
-  box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.08), 0 8px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.06), 0 4px 16px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }
