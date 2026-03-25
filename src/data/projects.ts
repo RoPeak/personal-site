@@ -6,6 +6,7 @@ export interface Project {
   tags: string[];
   githubUrl: string;
   liveUrl?: string;
+  screenshot?: string;
   featured: boolean;
   tier: 1 | 2;
   order: number;
@@ -20,6 +21,7 @@ export const projects: Project[] = [
       "A complete data engineering pipeline that ingests equity, crypto, and macroeconomic data from free public APIs, transforms it through a medallion architecture (Bronze, Silver, Gold), and surfaces analytics in an interactive Streamlit dashboard. Runs locally with a single docker compose up - no API keys required.",
     tags: ["Python", "dbt", "DuckDB", "Polars", "Prefect", "Streamlit", "Docker", "GitHub Actions"],
     githubUrl: "https://github.com/RoPeak/marketlens",
+    screenshot: "/assets/images/projects/marketlens-preview.png",
     featured: true,
     tier: 1,
     order: 1,
@@ -85,6 +87,19 @@ export const projects: Project[] = [
     order: 6,
   },
   {
+    id: "personal-site",
+    title: "This Website",
+    tagline: "You are looking at it",
+    description:
+      "A personal portfolio site built with Astro 5, Tailwind CSS v4, and TypeScript - deployed on Cloudflare Pages. Features a pure-CSS crossfade slideshow, scroll-reveal animations, a scroll progress bar, and zero client-side JavaScript frameworks. The irony of listing your portfolio site as a project on your portfolio site is not lost.",
+    tags: ["Astro", "TypeScript", "Tailwind CSS", "Cloudflare Pages"],
+    githubUrl: "https://github.com/RoPeak/personal-site",
+    liveUrl: "https://ronanpeacock.com",
+    featured: false,
+    tier: 2,
+    order: 7,
+  },
+  {
     id: "chess-ai",
     title: "Chess-AI",
     tagline: "Full chess implementation with a Swing GUI",
@@ -94,7 +109,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/RoPeak/Chess-AI",
     featured: false,
     tier: 2,
-    order: 7,
+    order: 8,
   },
 ];
 
