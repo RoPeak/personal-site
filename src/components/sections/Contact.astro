@@ -1,6 +1,6 @@
 ---
-import SectionHeading from '../ui/SectionHeading.astro';
 import { site } from '../../data/site';
+import SectionHeading from '../ui/SectionHeading.astro';
 ---
 
 <section id="contact" class="section section-tinted">
@@ -18,14 +18,22 @@ import { site } from '../../data/site';
         <div class="space-y-3">
 
           <!-- Email -->
-          <a href={`mailto:${site.email}`} class="contact-link reveal" style="transition-delay: 0.0s;" aria-label={`Email ${site.email}`}>
+          <a
+            class="contact-link reveal"
+            style="transition-delay: 0.0s;"
+            aria-label="Send me an email"
+            data-eu="contact"
+            data-ed="ronanpeacock.com"
+            role="link"
+            tabindex="0"
+          >
             <span class="contact-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <polyline points="22,6 12,13 2,6"/>
               </svg>
             </span>
-            <span>{site.email}</span>
+            <span>Send me an email</span>
           </a>
 
           <!-- LinkedIn -->

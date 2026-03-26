@@ -9,15 +9,25 @@
     "predev": "node ./scripts/check-node-version.mjs",
     "prebuild": "node ./scripts/check-node-version.mjs",
     "prepreview": "node ./scripts/check-node-version.mjs",
+    "compress": "node ./scripts/compress-images.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "biome check src",
+    "lint:fix": "biome check --write src",
+    "format": "biome format --write src"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.1",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.0.8",
     "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.8",
+    "@biomejs/biome": "^1.9.4",
+    "sharp": "^0.34.5",
+    "typescript": "^5.9.3"
   }
 }

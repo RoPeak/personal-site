@@ -43,10 +43,8 @@ import { site } from '../../data/site';
           autonomy R&D. Graduating from the University of Glasgow in July 2026.
         </p>
 
-        <div
-          class="hero-animate flex flex-wrap gap-3 mb-8"
-          style="animation-delay: 0.38s;"
-        >
+        <div class="hero-animate mb-8" style="animation-delay: 0.38s;">
+          <div class="flex flex-wrap gap-3">
           <a
             href="/projects"
             class="btn-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--color-accent)] text-white text-sm font-semibold hover:bg-[var(--color-accent-hover)] transition-all duration-200 shadow-lg shadow-[var(--color-accent-muted)]"
@@ -76,6 +74,10 @@ import { site } from '../../data/site';
           >
             Get in touch
           </a>
+          </div>
+          <p class="mt-2 text-xs text-[var(--color-text-faint)]">
+            CV updated {site.cvLastUpdated}
+          </p>
         </div>
 
         <!-- Social links -->

@@ -25,9 +25,9 @@ const slicePct = +(100 / count).toFixed(3);
 // to create a seamless loop with slide N-1. No animation-delay used.
 function buildKeyframes(i: number): string {
   if (i === 0) {
-    const holdEnd     = +(slicePct - fadePct).toFixed(2);
-    const fadeEnd     = +slicePct.toFixed(2);
-    const loopFadeIn  = +(100 - fadePct).toFixed(2);
+    const holdEnd = +(slicePct - fadePct).toFixed(2);
+    const fadeEnd = +slicePct.toFixed(2);
+    const loopFadeIn = +(100 - fadePct).toFixed(2);
     return `@keyframes ss-0 {
   0%           { opacity: 1; }
   ${holdEnd}%  { opacity: 1; }
@@ -38,9 +38,9 @@ function buildKeyframes(i: number): string {
   }
 
   const fadeInStart = +(i * slicePct - fadePct).toFixed(2);
-  const visible     = +(i * slicePct).toFixed(2);
-  const holdEnd     = +((i + 1) * slicePct - fadePct).toFixed(2);
-  const fadeEnd     = +((i + 1) * slicePct).toFixed(2);
+  const visible = +(i * slicePct).toFixed(2);
+  const holdEnd = +((i + 1) * slicePct - fadePct).toFixed(2);
+  const fadeEnd = +((i + 1) * slicePct).toFixed(2);
   return `@keyframes ss-${i} {
   0%              { opacity: 0; }
   ${fadeInStart}% { opacity: 0; }
@@ -51,11 +51,15 @@ function buildKeyframes(i: number): string {
 }`;
 }
 
-const dynamicCSS = photos.map((_, i) => `
+const dynamicCSS = photos
+  .map(
+    (_, i) => `
 ${buildKeyframes(i)}
 @media (prefers-reduced-motion: no-preference) {
   .slide-${i} { animation-name: ss-${i}; }
-}`).join('\n');
+}`
+  )
+  .join('\n');
 ---
 
 <div class={`slideshow ${className}`} aria-label="Photo slideshow">

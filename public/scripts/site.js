@@ -5,6 +5,12 @@ const mobileMenu = document.getElementById('mobile-menu');
 const menuIconOpen = document.getElementById('menu-icon-open');
 const menuIconClose = document.getElementById('menu-icon-close');
 
+const setEmailLinks = () => {
+  document.querySelectorAll('[data-eu][data-ed]').forEach((el) => {
+    el.href = 'mailto:' + el.dataset.eu + '@' + el.dataset.ed;
+  });
+};
+
 const updateScrollProgress = () => {
   if (!scrollBar) return;
   const scrolled = window.scrollY;
@@ -62,6 +68,7 @@ window.addEventListener('scroll', updateNav, { passive: true });
 updateScrollProgress();
 updateNav();
 closeMobileMenu();
+setEmailLinks();
 
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(

@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
-import Nav from '../components/layout/Nav.astro';
 import Footer from '../components/layout/Footer.astro';
+import Nav from '../components/layout/Nav.astro';
 import { site } from '../data/site';
 
 interface Props {
@@ -10,14 +10,19 @@ interface Props {
   ogImage?: string;
 }
 
-const {
-  title,
-  description = site.description,
-  ogImage = site.openGraph.image,
-} = Astro.props;
+const { title, description = site.description, ogImage = site.openGraph.image } = Astro.props;
 
 const pageTitle = title ? `${title} - ${site.name}` : `${site.name} - ${site.title}`;
 const canonicalUrl = new URL(Astro.url.pathname, site.url).href;
+const personSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  url: site.url,
+  email: site.email,
+  jobTitle: site.title,
+  sameAs: [site.github, site.linkedin],
+}).replace(site.email, site.email.replace('@', '\\u0040'));
 ---
 
 <!doctype html>
@@ -53,6 +58,10 @@ const canonicalUrl = new URL(Astro.url.pathname, site.url).href;
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <script type="application/ld+json" is:inline set:html={personSchema}></script>
 
     <title>{pageTitle}</title>
   </head>
@@ -68,6 +77,6 @@ const canonicalUrl = new URL(Astro.url.pathname, site.url).href;
     </main>
     <Footer />
 
-    <script type="module" src="/scripts/site.js"></script>
+    <script type="module" src="/scripts/site.js" is:inline></script>
   </body>
 </html>

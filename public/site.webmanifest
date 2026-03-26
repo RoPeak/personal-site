@@ -1,0 +1,22 @@
+{
+  "name": "Ronan Peacock",
+  "short_name": "Ronan Peacock",
+  "description": "Personal portfolio of Ronan Peacock - software engineer at Leidos and BSc Software Engineering student at the University of Glasgow.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#f8fafc",
+  "background_color": "#f8fafc",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

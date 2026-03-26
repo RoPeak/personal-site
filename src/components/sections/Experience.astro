@@ -1,7 +1,7 @@
 ---
+import { timeline } from '../../data/timeline';
 import SectionHeading from '../ui/SectionHeading.astro';
 import TechTag from '../ui/TechTag.astro';
-import { timeline } from '../../data/timeline';
 
 const sorted = [...timeline].sort((a, b) => a.order - b.order);
 ---
