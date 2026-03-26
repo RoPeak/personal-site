@@ -1,4 +1,4 @@
-# ronanpeacock.com
+# ronan-peacock.com
 
 Personal portfolio site for Ronan Peacock - software engineer, graduate apprentice at Leidos,
 and BSc Software Engineering student at the University of Glasgow.
@@ -56,7 +56,7 @@ Hosted on Cloudflare Pages. To deploy:
    - **Framework preset:** Astro
    - **Build command:** `npm run build`
    - **Build output directory:** `dist`
-4. Add a custom domain (`ronanpeacock.com`) under the Pages project settings after first deploy.
+4. Add a custom domain (`ronan-peacock.com`) under the Pages project settings after first deploy.
 
 Security headers are set via `public/_headers` and served automatically by Cloudflare Pages.
 
