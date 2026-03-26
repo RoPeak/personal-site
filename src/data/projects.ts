@@ -96,7 +96,7 @@ export const projects: Project[] = [
     title: "This Website",
     tagline: "You are looking at it",
     description:
-      "A personal portfolio site built with Astro 5, Tailwind CSS v4, and TypeScript - deployed on Cloudflare Pages. Features a pure-CSS crossfade slideshow, scroll-reveal animations, a scroll progress bar, and zero client-side JavaScript frameworks. The irony of listing your portfolio site as a project on your portfolio site is not lost.",
+      "A personal portfolio site built with Astro 6, Tailwind CSS v4, and TypeScript - designed for deployment on Cloudflare Pages. Features a pure-CSS crossfade slideshow, scroll-reveal animations, a scroll progress bar, and zero client-side JavaScript frameworks. The irony of listing your portfolio site as a project on your portfolio site is not lost.",
     tags: ["Astro", "TypeScript", "Tailwind CSS", "Cloudflare Pages"],
     githubUrl: "https://github.com/RoPeak/personal-site",
     liveUrl: "https://ronanpeacock.com",

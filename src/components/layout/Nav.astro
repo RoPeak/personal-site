@@ -74,11 +74,11 @@ const navLinks = [
   </nav>
 
   <!-- Mobile menu -->
-  <div
+  <nav
     id="mobile-menu"
     class="hidden md:hidden border-t border-[var(--color-border)] bg-[var(--color-surface)]"
-    role="dialog"
     aria-label="Mobile navigation"
+    aria-hidden="true"
   >
     <ul class="container py-4 flex flex-col gap-1" role="list">
       {navLinks.map((link) => (
@@ -102,7 +102,7 @@ const navLinks = [
         </a>
       </li>
     </ul>
-  </div>
+  </nav>
 </header>
 
 <style>
@@ -119,46 +119,3 @@ const navLinks = [
   }
 </style>
 
-<script>
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  const iconOpen = document.getElementById('menu-icon-open');
-  const iconClose = document.getElementById('menu-icon-close');
-  const nav = document.getElementById('site-nav');
-
-  // Mobile toggle
-  btn?.addEventListener('click', () => {
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
-    menu?.classList.toggle('hidden');
-    iconOpen?.classList.toggle('hidden');
-    iconClose?.classList.toggle('hidden');
-  });
-
-  // Close mobile menu on link click
-  menu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      menu.classList.add('hidden');
-      iconOpen?.classList.remove('hidden');
-      iconClose?.classList.add('hidden');
-      btn?.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // Scroll-aware nav background
-  const updateNav = () => {
-    if (!nav) return;
-    if (window.scrollY > 20) {
-      nav.style.background = 'rgba(248, 250, 252, 0.92)';
-      nav.style.backdropFilter = 'blur(12px)';
-      nav.style.borderBottom = '1px solid rgba(0,0,0,0.06)';
-    } else {
-      nav.style.background = 'transparent';
-      nav.style.backdropFilter = 'none';
-      nav.style.borderBottom = 'none';
-    }
-  };
-
-  window.addEventListener('scroll', updateNav, { passive: true });
-  updateNav();
-</script>

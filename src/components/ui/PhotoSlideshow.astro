@@ -62,12 +62,12 @@ ${buildKeyframes(i)}
   {photos.map((photo, i) => (
     <img
       src={photo.src}
-      alt={i === 0 ? photo.alt : ''}
+      alt={photo.alt}
       width="400"
       height="480"
       loading={i === 0 ? 'eager' : 'lazy'}
       class={`slide slide-${i}`}
-      aria-hidden={i !== 0 ? 'true' : undefined}
+      aria-hidden={photo.alt ? undefined : 'true'}
     />
   ))}
 </div>
