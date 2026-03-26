@@ -3,6 +3,8 @@
 Personal portfolio site for Ronan Peacock - software engineer, graduate apprentice at Leidos,
 and BSc Software Engineering student at the University of Glasgow.
 
+![Preview](docs/images/preview.png)
+
 ## Stack
 
 - [Astro](https://astro.build) - static site framework
