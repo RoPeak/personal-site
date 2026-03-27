@@ -1,38 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0d1117"/>
-      <stop offset="100%" style="stop-color:#161b22"/>
+      <stop offset="0%" style="stop-color:#f8fbff"/>
+      <stop offset="100%" style="stop-color:#edf6ff"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f3f9ff"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#38bdf8"/>
     </linearGradient>
     <linearGradient id="name-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e6edf3"/>
-      <stop offset="100%" style="stop-color:#818cf8"/>
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#0c4a6e"/>
     </linearGradient>
-    <radialGradient id="glow" cx="25%" cy="60%" r="50%">
-      <stop offset="0%" style="stop-color:rgba(99,102,241,0.15)"/>
-      <stop offset="100%" style="stop-color:rgba(99,102,241,0)"/>
+    <radialGradient id="glowLeft" cx="20%" cy="25%" r="60%">
+      <stop offset="0%" style="stop-color:rgba(56,189,248,0.22)"/>
+      <stop offset="100%" style="stop-color:rgba(56,189,248,0)"/>
     </radialGradient>
+    <radialGradient id="glowRight" cx="85%" cy="80%" r="45%">
+      <stop offset="0%" style="stop-color:rgba(14,165,233,0.16)"/>
+      <stop offset="100%" style="stop-color:rgba(14,165,233,0)"/>
+    </radialGradient>
+    <pattern id="dotGrid" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#d7e8f7"/>
+    </pattern>
   </defs>
 
-  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#glowLeft)"/>
+  <rect width="1200" height="630" fill="url(#glowRight)"/>
+  <rect width="1200" height="630" fill="url(#dotGrid)" opacity="0.45"/>
 
-  <!-- Border -->
-  <rect x="1" y="1" width="1198" height="628" rx="0" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+  <rect x="52" y="52" width="1096" height="526" rx="34" fill="url(#panel)" stroke="#d8e9f7" stroke-width="2"/>
 
-  <!-- Accent line -->
-  <rect x="80" y="200" width="3" height="220" rx="2" fill="#6366f1"/>
+  <circle cx="1010" cy="146" r="124" fill="rgba(14,165,233,0.08)"/>
+  <circle cx="1038" cy="168" r="90" fill="rgba(14,165,233,0.1)"/>
+  <circle cx="1060" cy="188" r="42" fill="url(#accent)"/>
 
-  <!-- Name -->
-  <text x="112" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="url(#name-grad)">Ronan Peacock</text>
+  <rect x="112" y="145" width="172" height="32" rx="16" fill="#e0f2fe"/>
+  <text x="136" y="166" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="700" letter-spacing="1.4" fill="#0369a1">RONAN PEACOCK</text>
 
-  <!-- Title -->
-  <text x="114" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="500" fill="#8b949e">Software Engineer</text>
+  <text x="112" y="270" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="82" font-weight="800" fill="url(#name-grad)">Software Engineer</text>
+  <text x="112" y="343" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="82" font-weight="800" fill="url(#name-grad)">in Glasgow</text>
 
-  <!-- Tagline -->
-  <text x="114" y="390" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#484f58">4 years industry experience · Graduating first class · University of Glasgow</text>
+  <text x="112" y="416" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="27" font-weight="500" fill="#334155">Graduate apprentice at Leidos and final-year</text>
+  <text x="112" y="454" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="27" font-weight="500" fill="#334155">University of Glasgow software engineering student.</text>
 
-  <!-- URL -->
-  <text x="114" y="450" font-family="ui-monospace, monospace" font-size="18" fill="#6366f1">ronan-peacock.com</text>
+  <rect x="112" y="495" width="238" height="42" rx="21" fill="#e0f2fe"/>
+  <text x="138" y="522" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" font-weight="600" fill="#0369a1">ronan-peacock.com</text>
+
+  <text x="387" y="522" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" fill="#64748b">4 years industry experience</text>
 </svg>
