@@ -59,6 +59,9 @@ Hosted on Cloudflare Workers with Git-connected builds. To deploy:
    - **Production branch:** `main`
 4. Add or confirm the custom domains (`ronan-peacock.com` and `www.ronan-peacock.com`) under the Worker settings.
 
+Worker runtime configuration is committed in `wrangler.jsonc`, including the Worker name,
+compatibility date, compatibility flags, and static asset directory (`./dist`).
+
 This project is not currently configured as a Cloudflare Pages site. If automatic deployments stop working, check that the Worker is still connected to the GitHub account and repository.
 
 ## CI Gate
