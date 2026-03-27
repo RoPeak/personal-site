@@ -10,7 +10,7 @@ and BSc Software Engineering student at the University of Glasgow.
 - [Astro](https://astro.build) - static site framework
 - [Tailwind CSS v4](https://tailwindcss.com) - utility-first styling
 - [TypeScript](https://www.typescriptlang.org) - typed throughout
-- Deployed on [Cloudflare Pages](https://pages.cloudflare.com)
+- Deployed on [Cloudflare Workers](https://developers.cloudflare.com/workers/)
 
 ## Development
 
@@ -48,17 +48,21 @@ public/
 
 ## Deployment
 
-Hosted on Cloudflare Pages. To deploy:
+Hosted on Cloudflare Workers with Git-connected builds. To deploy:
 
 1. Push this repo to GitHub.
-2. In the Cloudflare dashboard go to **Workers & Pages > Create > Pages > Connect to Git**.
+2. In the Cloudflare dashboard go to **Workers & Pages**, open the `personal-site` Worker, and connect it to Git.
 3. Select the repo and configure:
-   - **Framework preset:** Astro
    - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
-4. Add a custom domain (`ronan-peacock.com`) under the Pages project settings after first deploy.
+   - **Deploy command:** `npx wrangler deploy`
+   - **Version command:** `npx wrangler versions upload`
+   - **Production branch:** `main`
+4. Add or confirm the custom domains (`ronan-peacock.com` and `www.ronan-peacock.com`) under the Worker settings.
 
-Security headers are set via `public/_headers` and served automatically by Cloudflare Pages.
+Worker runtime configuration is committed in `wrangler.jsonc`, including the Worker name,
+compatibility date, compatibility flags, and static asset directory (`./dist`).
+
+This project is not currently configured as a Cloudflare Pages site. If automatic deployments stop working, check that the Worker is still connected to the GitHub account and repository.
 
 ## CI Gate
 

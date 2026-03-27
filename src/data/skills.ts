@@ -29,6 +29,7 @@ export const skillGroups: SkillGroup[] = [
       'Bamboo',
       'Oracle Cloud',
       'Cloudflare Pages',
+      'Cloudflare Workers',
       'CI/CD',
     ],
   },
