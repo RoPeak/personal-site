@@ -73,7 +73,10 @@ const schemaGraph = {
         },
       ],
 };
-const structuredData = JSON.stringify(schemaGraph).replace(site.email, site.email.replace('@', '\\u0040'));
+const structuredData = JSON.stringify(schemaGraph).replace(
+  site.email,
+  site.email.replace('@', '\\u0040')
+);
 ---
 
 <!doctype html>

@@ -60,6 +60,16 @@ Hosted on Cloudflare Pages. To deploy:
 
 Security headers are set via `public/_headers` and served automatically by Cloudflare Pages.
 
+## CI Gate
+
+Local pushes run the same quality gate as GitHub Actions:
+
+```bash
+npm run ci
+```
+
+`npm install` configures `core.hooksPath` to `.githooks`, which enables the versioned `pre-push` hook for this repo.
+
 ## Content
 
 All site content lives in `src/data/` as plain TypeScript files.

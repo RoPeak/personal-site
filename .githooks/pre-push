@@ -1,0 +1,4 @@
+#!/bin/sh
+
+node scripts/run-ci-gate.mjs
+exit $?

@@ -11,9 +11,9 @@ jobs:
     name: Lint, type-check, and build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version-file: .node-version
           cache: npm
@@ -21,11 +21,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint (Biome)
-        run: npm run lint
-
-      - name: Type check (Astro)
-        run: npx astro check
-
-      - name: Build
-        run: npm run build
+      - name: CI gate
+        run: npm run ci

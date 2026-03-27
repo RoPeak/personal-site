@@ -9,6 +9,7 @@
     "predev": "node ./scripts/check-node-version.mjs",
     "prebuild": "node ./scripts/check-node-version.mjs",
     "prepreview": "node ./scripts/check-node-version.mjs",
+    "prepare": "node ./scripts/install-git-hooks.mjs",
     "compress": "node ./scripts/compress-images.mjs",
     "dev": "astro dev",
     "build": "astro build",
@@ -16,7 +17,9 @@
     "astro": "astro",
     "lint": "biome check src",
     "lint:fix": "biome check --write src",
-    "format": "biome format --write src"
+    "format": "biome format --write src",
+    "typecheck": "astro check",
+    "ci": "npm run lint && npm run typecheck && npm run build"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.1",
