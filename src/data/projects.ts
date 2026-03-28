@@ -21,6 +21,7 @@ export const projects: Project[] = [
       'A browser-based real-time strategy prototype built around deterministic simulation, replayable battle tests, and a rugged retro tactical display. Players secure uplinks, extend radar coverage, reposition strike packages, and issue command-queued orders through a React + Canvas shell that consumes a fixed-step sim.',
     tags: ['TypeScript', 'React 19', 'Canvas 2D', 'Vite', 'Vitest', 'Game Simulation'],
     githubUrl: 'https://github.com/RoPeak/signal-breach',
+    screenshot: '/assets/images/projects/signal-breach-preview.png',
     featured: true,
     tier: 1,
     order: 0,
@@ -70,8 +71,8 @@ export const projects: Project[] = [
     tags: ['Python', 'CLI', 'pytest', 'GitHub Actions', 'Wikidata', 'TVMaze'],
     githubUrl: 'https://github.com/RoPeak/plexify',
     screenshot: '/assets/images/projects/plexify-preview.jpg',
-    featured: true,
-    tier: 1,
+    featured: false,
+    tier: 2,
     order: 3,
   },
   {
@@ -153,5 +154,6 @@ export const projects: Project[] = [
 
 export const featuredProjects = projects
   .filter((p) => p.featured)
-  .sort((a, b) => a.order - b.order);
-export const allProjects = projects.sort((a, b) => a.order - b.order);
+  .sort((a, b) => a.order - b.order)
+  .slice(0, 3);
+export const allProjects = [...projects].sort((a, b) => a.order - b.order);
