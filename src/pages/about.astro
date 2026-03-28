@@ -1,0 +1,247 @@
+---
+import { awards } from '../data/awards';
+import { degree } from '../data/education';
+import { site } from '../data/site';
+import { timeline } from '../data/timeline';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const focusAreas = [
+  'Cybersecurity operations and infrastructure',
+  'Legacy systems modernisation',
+  'Public-sector frontend delivery',
+  'Maritime autonomy R&D and engineering tooling',
+];
+
+const selectedAwards = [...awards].sort((a, b) => a.order - b.order).slice(0, 3);
+const orderedTimeline = [...timeline].sort((a, b) => a.order - b.order);
+---
+
+<BaseLayout
+  title="About Ronan Peacock"
+  description="About Ronan Peacock - software engineer in Glasgow, graduate apprentice at Leidos, University of Glasgow student, and builder of practical software projects."
+  schemaMode="profile"
+>
+  <div class="pt-28 pb-20">
+    <div class="container space-y-18">
+      <section class="grid lg:grid-cols-[1.3fr_0.9fr] gap-10 items-start">
+        <div>
+          <p class="text-sm font-mono text-[var(--color-accent)] mb-3 tracking-wide">/about</p>
+          <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-text)] mb-5">
+            About Ronan Peacock
+          </h1>
+          <p class="text-lg text-[var(--color-text)] leading-relaxed max-w-3xl mb-4">
+            Ronan Peacock is a software engineer in Glasgow, currently working as a graduate
+            apprentice at Leidos while completing a BSc (Hons) in Software Engineering with
+            Human Computer Interaction at the University of Glasgow.
+          </p>
+          <p class="text-[var(--color-text-muted)] leading-relaxed max-w-3xl mb-4">
+            His work has spanned cybersecurity operations, legacy systems modernisation,
+            public-sector web delivery, and maritime autonomy R&amp;D. Across those placements,
+            the consistent theme has been practical engineering: understanding inherited systems
+            quickly, improving them safely, and delivering software that is usable by real teams.
+          </p>
+          <p class="text-[var(--color-text-muted)] leading-relaxed max-w-3xl">
+            Outside of work, he builds personal projects to deepen his understanding of software
+            architecture, developer tooling, data systems, and frontend delivery. Most of those
+            projects are published openly on GitHub and summarised on this site.
+          </p>
+        </div>
+
+        <aside class="card p-6 space-y-5">
+          <img
+            src={site.image}
+            alt="Ronan Peacock"
+            width="320"
+            height="320"
+            class="w-full max-w-[240px] rounded-2xl border border-[var(--color-border)] object-cover mx-auto"
+          />
+
+          <div class="space-y-4">
+            <div class="fact-row">
+              <span class="fact-label">Current role</span>
+              <p class="fact-value">{site.role} at {site.employer}</p>
+            </div>
+            <div class="fact-row">
+              <span class="fact-label">Location</span>
+              <p class="fact-value">{site.location}</p>
+            </div>
+            <div class="fact-row">
+              <span class="fact-label">Studying</span>
+              <p class="fact-value">{degree.title}</p>
+              <p class="fact-note">{degree.expectedGraduation}</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-3 pt-2">
+            <a href="/projects" class="about-link">Projects</a>
+            <a href={site.github} target="_blank" rel="noopener noreferrer" class="about-link">GitHub</a>
+            <a href={site.linkedin} target="_blank" rel="noopener noreferrer" class="about-link">LinkedIn</a>
+            <a href={site.cvPath} target="_blank" rel="noopener noreferrer" class="about-link">CV</a>
+            <a href="/#contact" class="about-link">Contact</a>
+          </div>
+        </aside>
+      </section>
+
+      <section class="grid lg:grid-cols-[1.2fr_0.8fr] gap-8">
+        <div class="card p-6">
+          <h2 class="section-title">Career Snapshot</h2>
+          <div class="space-y-5">
+            {orderedTimeline.map((entry) => (
+              <article class="space-y-2 border-l border-[var(--color-border)] pl-4">
+                <div class="flex flex-wrap items-start justify-between gap-2">
+                  <h3 class="text-base font-semibold text-[var(--color-text)]">{entry.title}</h3>
+                  <span class="mono-meta">{entry.period}</span>
+                </div>
+                <p class="mono-meta">{entry.location}</p>
+                <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{entry.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <section class="card p-6">
+            <h2 class="section-title">Focus Areas</h2>
+            <ul class="space-y-2">
+              {focusAreas.map((item) => (
+                <li class="bullet-row">
+                  <span class="bullet-dot" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="card p-6">
+            <h2 class="section-title">Recognition</h2>
+            <div class="space-y-4">
+              {selectedAwards.map((award) => (
+                <article>
+                  <div class="flex flex-wrap items-start justify-between gap-2 mb-1">
+                    <h3 class="text-sm font-semibold text-[var(--color-text)]">{award.title}</h3>
+                    <span class="mono-meta">{award.date}</span>
+                  </div>
+                  <p class="text-xs text-[var(--color-text-faint)] mb-1">{award.issuer}</p>
+                  <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{award.description}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="card p-6">
+        <h2 class="section-title">Education And Links</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-4">
+              Ronan Peacock is completing his degree through the Graduate Apprenticeship route,
+              combining full-time industry work with academic study. That structure has shaped
+              the site as a profile of practical, workplace-tested engineering rather than a
+              purely academic portfolio.
+            </p>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
+              He is on track for first-class honours and is graduating in July 2026.
+            </p>
+          </div>
+
+          <div class="space-y-3">
+            <a href="/" class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">
+              Back to homepage
+            </a>
+            <a href="/projects" class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">
+              View projects
+            </a>
+            <a href={site.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">
+              LinkedIn profile
+            </a>
+            <a href={site.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">
+              GitHub profile
+            </a>
+            <a href="/#contact" class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">
+              Contact Ronan Peacock
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .mono-meta {
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-faint);
+  }
+
+  .fact-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .fact-label {
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-faint);
+  }
+
+  .fact-value {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .fact-note {
+    font-size: 0.8rem;
+    color: var(--color-text-faint);
+  }
+
+  .about-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .about-link:hover {
+    color: var(--color-text);
+    border-color: var(--color-border-accent);
+    background-color: var(--color-accent-muted);
+  }
+
+  .bullet-row {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .bullet-dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 999px;
+    margin-top: 0.5rem;
+    background-color: var(--color-accent);
+    flex-shrink: 0;
+  }
+ </style>

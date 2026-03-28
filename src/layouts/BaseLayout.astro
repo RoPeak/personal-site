@@ -8,13 +8,24 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  schemaMode?: 'default' | 'profile';
 }
 
-const { title, description = site.description, ogImage = site.openGraph.image } = Astro.props;
+const {
+  title,
+  description = site.description,
+  ogImage = site.openGraph.image,
+  schemaMode = 'default',
+} = Astro.props;
 
-const isHomePage = Astro.url.pathname === '/';
-const pageTitle = title ? `${title} | ${site.name}` : `${site.name} | ${site.title}`;
+const pageTitle = title
+  ? title.includes(site.name)
+    ? title
+    : `${title} | ${site.name}`
+  : `${site.name} | ${site.title}`;
 const canonicalUrl = new URL(Astro.url.pathname, site.url).href;
+const isHomePage = Astro.url.pathname === '/';
+const isProfilePage = schemaMode === 'profile';
 const schemaGraph = {
   '@context': 'https://schema.org',
   '@graph': isHomePage
@@ -27,51 +38,62 @@ const schemaGraph = {
           description: site.description,
           inLanguage: 'en-GB',
         },
-        {
-          '@type': 'ProfilePage',
-          '@id': `${site.url}/#profile`,
-          url: site.url,
-          name: pageTitle,
-          description,
-          isPartOf: { '@id': `${site.url}/#website` },
-          mainEntity: { '@id': `${site.url}/#person` },
-        },
-        {
-          '@type': 'Person',
-          '@id': `${site.url}/#person`,
-          name: site.name,
-          url: site.url,
-          image: `${site.url}${site.image}`,
-          email: site.email,
-          description: site.description,
-          jobTitle: site.role,
-          homeLocation: {
-            '@type': 'Place',
-            name: site.location,
-          },
-          worksFor: {
-            '@type': 'Organization',
-            name: site.employer,
-            url: site.employerUrl,
-          },
-          alumniOf: {
-            '@type': 'CollegeOrUniversity',
-            name: site.alumniOf,
-            url: site.alumniOfUrl,
-          },
-          sameAs: [site.github, site.linkedin],
-        },
       ]
-    : [
-        {
-          '@type': 'WebSite',
-          '@id': `${site.url}/#website`,
-          url: site.url,
-          name: site.name,
-          description: site.description,
-          inLanguage: 'en-GB',
-        },
-      ],
+    : isProfilePage
+      ? [
+          {
+            '@type': 'WebSite',
+            '@id': `${site.url}/#website`,
+            url: site.url,
+            name: site.name,
+            description: site.description,
+            inLanguage: 'en-GB',
+          },
+          {
+            '@type': 'ProfilePage',
+            '@id': `${canonicalUrl}#profile`,
+            url: canonicalUrl,
+            name: pageTitle,
+            description,
+            isPartOf: { '@id': `${site.url}/#website` },
+            mainEntity: { '@id': `${site.url}/#person` },
+          },
+          {
+            '@type': 'Person',
+            '@id': `${site.url}/#person`,
+            name: site.name,
+            url: site.url,
+            image: `${site.url}${site.image}`,
+            email: site.email,
+            description,
+            jobTitle: site.role,
+            homeLocation: {
+              '@type': 'Place',
+              name: site.location,
+            },
+            worksFor: {
+              '@type': 'Organization',
+              name: site.employer,
+              url: site.employerUrl,
+            },
+            alumniOf: {
+              '@type': 'CollegeOrUniversity',
+              name: site.alumniOf,
+              url: site.alumniOfUrl,
+            },
+            sameAs: [site.github, site.linkedin],
+          },
+        ]
+      : [
+          {
+            '@type': 'WebSite',
+            '@id': `${site.url}/#website`,
+            url: site.url,
+            name: site.name,
+            description: site.description,
+            inLanguage: 'en-GB',
+          },
+        ],
 };
 const structuredData = JSON.stringify(schemaGraph).replace(
   site.email,
