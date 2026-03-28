@@ -14,6 +14,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'signal-breach',
+    title: 'Signal Breach',
+    tagline: 'Deterministic browser RTS focused on signal warfare',
+    description:
+      'A browser-based real-time strategy prototype built around deterministic simulation, replayable battle tests, and a rugged retro tactical display. Players secure uplinks, extend radar coverage, reposition strike packages, and issue command-queued orders through a React + Canvas shell that consumes a fixed-step sim.',
+    tags: ['TypeScript', 'React 19', 'Canvas 2D', 'Vite', 'Vitest', 'Game Simulation'],
+    githubUrl: 'https://github.com/RoPeak/signal-breach',
+    featured: true,
+    tier: 1,
+    order: 0,
+  },
+  {
     id: 'marketlens',
     title: 'MarketLens',
     tagline: 'End-to-end financial market data pipeline',
