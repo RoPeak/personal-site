@@ -63,6 +63,19 @@ export const projects: Project[] = [
     order: 2,
   },
   {
+    id: 'epoch',
+    title: 'Epoch',
+    tagline: 'Civilisation lifecycle simulator with a map-first observer UI',
+    description:
+      'A browser-based simulation that generates terrain, founds settlements, grows trade routes, forms civilisations, triggers wars, and tracks collapse into ruin. Built as a deterministic TypeScript + Canvas system with replay controls, dynamic overlay legends, major-event callouts, and end-of-era summaries.',
+    tags: ['TypeScript', 'React', 'Canvas 2D', 'Vite', 'Vitest', 'Simulation'],
+    githubUrl: 'https://github.com/RoPeak/epoch',
+    screenshot: '/assets/images/projects/epoch-preview.png',
+    featured: false,
+    tier: 2,
+    order: 3,
+  },
+  {
     id: 'plexify',
     title: 'Plexify',
     tagline: 'CLI tool for organising media libraries',
@@ -73,7 +86,7 @@ export const projects: Project[] = [
     screenshot: '/assets/images/projects/plexify-preview.jpg',
     featured: false,
     tier: 2,
-    order: 3,
+    order: 4,
   },
   {
     id: 'algorithm-playground-api',
@@ -95,7 +108,7 @@ export const projects: Project[] = [
     screenshot: '/assets/images/projects/algorithm-playground-api-preview.png',
     featured: false,
     tier: 2,
-    order: 4,
+    order: 5,
   },
   {
     id: 'algo-visualiser',
@@ -108,7 +121,7 @@ export const projects: Project[] = [
     screenshot: '/assets/images/projects/algo-visualiser-preview.png',
     featured: false,
     tier: 2,
-    order: 5,
+    order: 6,
   },
   {
     id: 'swiftseek',
@@ -121,7 +134,7 @@ export const projects: Project[] = [
     screenshot: '/assets/images/projects/swiftseek-preview.png',
     featured: false,
     tier: 2,
-    order: 6,
+    order: 7,
   },
   {
     id: 'personal-site',
@@ -135,7 +148,7 @@ export const projects: Project[] = [
     screenshot: '/assets/images/projects/personal-site-preview.png',
     featured: false,
     tier: 2,
-    order: 7,
+    order: 8,
   },
   {
     id: 'chess-ai',
@@ -148,7 +161,7 @@ export const projects: Project[] = [
     screenshot: '/assets/images/projects/chess-ai-preview.png',
     featured: false,
     tier: 2,
-    order: 8,
+    order: 9,
   },
 ];
 
