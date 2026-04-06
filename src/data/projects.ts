@@ -89,6 +89,19 @@ export const projects: Project[] = [
     order: 4,
   },
   {
+    id: 'mediashrink',
+    title: 'mediashrink',
+    tagline: 'CLI tool for compressing video libraries with H.265',
+    description:
+      'A Python CLI for analysing video libraries and re-encoding worthwhile candidates to H.265/HEVC with FFmpeg. Includes a guided wizard, hardware encoder detection, sample-based profile recommendations, manifest export, and conservative cleanup behaviour for batch compression runs.',
+    tags: ['Python', 'CLI', 'FFmpeg', 'Rich', 'pytest', 'GitHub Actions'],
+    githubUrl: 'https://github.com/RoPeak/mediashrink',
+    screenshot: '/assets/images/projects/mediashrink-preview.svg',
+    featured: false,
+    tier: 2,
+    order: 5,
+  },
+  {
     id: 'algorithm-playground-api',
     title: 'Algorithm Playground API',
     tagline: 'Algorithm benchmarking service with a React frontend',
@@ -108,7 +121,7 @@ export const projects: Project[] = [
     screenshot: '/assets/images/projects/algorithm-playground-api-preview.png',
     featured: false,
     tier: 2,
-    order: 5,
+    order: 6,
   },
   {
     id: 'algo-visualiser',
@@ -121,7 +134,7 @@ export const projects: Project[] = [
     screenshot: '/assets/images/projects/algo-visualiser-preview.png',
     featured: false,
     tier: 2,
-    order: 6,
+    order: 7,
   },
   {
     id: 'swiftseek',
@@ -134,7 +147,7 @@ export const projects: Project[] = [
     screenshot: '/assets/images/projects/swiftseek-preview.png',
     featured: false,
     tier: 2,
-    order: 7,
+    order: 8,
   },
   {
     id: 'personal-site',
@@ -148,7 +161,7 @@ export const projects: Project[] = [
     screenshot: '/assets/images/projects/personal-site-preview.png',
     featured: false,
     tier: 2,
-    order: 8,
+    order: 9,
   },
   {
     id: 'chess-ai',
@@ -161,7 +174,7 @@ export const projects: Project[] = [
     screenshot: '/assets/images/projects/chess-ai-preview.png',
     featured: false,
     tier: 2,
-    order: 9,
+    order: 10,
   },
 ];
 
