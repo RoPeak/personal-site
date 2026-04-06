@@ -7,6 +7,7 @@ export interface Project {
   githubUrl: string;
   liveUrl?: string;
   screenshot?: string;
+  screenshotFit?: 'cover' | 'contain';
   featured: boolean;
   tier: 1 | 2;
   order: number;
@@ -84,6 +85,7 @@ export const projects: Project[] = [
     tags: ['Python', 'CLI', 'pytest', 'GitHub Actions', 'Wikidata', 'TVMaze'],
     githubUrl: 'https://github.com/RoPeak/plexify',
     screenshot: '/assets/images/projects/plexify-preview.jpg',
+    screenshotFit: 'contain',
     featured: false,
     tier: 2,
     order: 4,

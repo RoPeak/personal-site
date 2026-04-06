@@ -11,6 +11,10 @@ const primaryUrl = project.liveUrl ?? project.githubUrl;
 const primaryLabel = project.liveUrl
   ? `View ${project.title} live`
   : `View ${project.title} on GitHub`;
+const screenshotClass =
+  project.screenshotFit === 'contain'
+    ? 'w-full object-contain bg-[#050505] p-4'
+    : 'w-full object-cover object-top';
 ---
 
 <article class="project-card card flex flex-col overflow-hidden">
@@ -27,7 +31,7 @@ const primaryLabel = project.liveUrl
         alt={`${project.title} screenshot`}
         width="600"
         height="340"
-        class="w-full object-cover object-top"
+        class={screenshotClass}
         loading="lazy"
       />
     </a>
