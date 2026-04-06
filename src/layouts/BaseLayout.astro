@@ -13,7 +13,7 @@ interface Props {
 const { title, description = site.description, ogImage = site.openGraph.image } = Astro.props;
 
 const isHomePage = Astro.url.pathname === '/';
-const pageTitle = title ? `${title} | ${site.name}` : `${site.name} | ${site.title}`;
+const pageTitle = title ? `${title} | ${site.name}` : `${site.name} - ${site.title}`;
 const canonicalUrl = new URL(Astro.url.pathname, site.url).href;
 const schemaGraph = {
   '@context': 'https://schema.org',
@@ -35,12 +35,14 @@ const schemaGraph = {
           description,
           isPartOf: { '@id': `${site.url}/#website` },
           mainEntity: { '@id': `${site.url}/#person` },
+          about: { '@id': `${site.url}/#person` },
         },
         {
           '@type': 'Person',
           '@id': `${site.url}/#person`,
           name: site.name,
           url: site.url,
+          mainEntityOfPage: { '@id': `${site.url}/#profile` },
           image: `${site.url}${site.image}`,
           email: site.email,
           description: site.description,
@@ -88,6 +90,8 @@ const structuredData = JSON.stringify(schemaGraph).replace(
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#f8fafc" />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="me" href={site.github} />
+    <link rel="me" href={site.linkedin} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
