@@ -5,7 +5,7 @@ export const site = {
   tagline:
     'Ronan Peacock is a software engineer in Glasgow, graduate apprentice at Leidos, and University of Glasgow student graduating in July 2026. This is his personal portfolio site.',
   description:
-    "Ronan Peacock is a software engineer in Glasgow. Explore Ronan Peacock's portfolio, projects, experience, awards, CV, and contact details.",
+    "Ronan Peacock is a software engineer in Glasgow. Explore Ronan Peacock's portfolio, software projects, experience, awards, CV, and contact details.",
   url: 'https://ronan-peacock.com',
   email: 'contact@ronan-peacock.com',
   github: 'https://github.com/RoPeak',
