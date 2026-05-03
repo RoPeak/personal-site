@@ -99,6 +99,7 @@ export const projects: Project[] = [
     tags: ['Python', 'CLI', 'FFmpeg', 'Rich', 'pytest', 'GitHub Actions'],
     githubUrl: 'https://github.com/RoPeak/mediashrink',
     screenshot: '/assets/images/projects/mediashrink-preview.png',
+    screenshotFit: 'contain',
     featured: false,
     tier: 2,
     order: 5,
