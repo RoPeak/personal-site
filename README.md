@@ -1,7 +1,7 @@
 # ronan-peacock.com
 
-Personal portfolio site for Ronan Peacock - software engineer, graduate apprentice at Leidos,
-and BSc Software Engineering student at the University of Glasgow.
+Personal portfolio site for Ronan Peacock - Full Stack Developer at Twizzit, software engineer,
+and First-Class University of Glasgow graduate.
 
 ![Preview](docs/images/preview.png)
 

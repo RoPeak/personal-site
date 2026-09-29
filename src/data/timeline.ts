@@ -2,6 +2,7 @@ export interface TimelineEntry {
   id: string;
   title: string;
   period: string;
+  employer: string;
   location: string;
   description: string;
   highlights: string[];
@@ -11,68 +12,88 @@ export interface TimelineEntry {
 
 export const timeline: TimelineEntry[] = [
   {
+    id: 'twizzit',
+    title: 'Full Stack Developer',
+    period: 'September 2026 - Present',
+    employer: 'Twizzit',
+    location: 'Glasgow, Scotland',
+    description:
+      "Working within Twizzit's product engineering team on the continued development and support of its SaaS platform across frontend and backend systems. The role spans shaping solutions, implementation, code review, end-to-end testing, production delivery, and post-release support.",
+    highlights: [
+      'Developing new product features and improving existing functionality across the stack',
+      'Investigating and resolving bugs, production issues, and ongoing application-support needs',
+      'Contributing to product, technical, and design decisions from initial discussion through delivery',
+      "Collaborating with developers and other teams within Twizzit's Shape Up development process",
+    ],
+    tags: ['Full Stack Development', 'Frontend', 'Backend', 'Code Review', 'Testing', 'Shape Up'],
+    order: 1,
+  },
+  {
     id: 'cybersecurity',
     title: 'Cybersecurity Operations and Architecture',
     period: '2022 - 2023',
-    location: 'Leidos, Glasgow',
+    employer: 'Leidos',
+    location: 'Glasgow, Scotland',
     description:
-      'Started my apprenticeship embedded in a cybersecurity operations environment. Gained hands-on experience performing vulnerability assessments, threat intelligence analysis, and incident response. Built foundational skills in cloud infrastructure - deploying and managing AWS EC2 instances, configuring Splunk log-forwarding pipelines, and working with Linux and Windows servers in a regulated network environment.',
+      'Worked in a cybersecurity operations environment as part of a broader software engineering apprenticeship. Gained exposure to security monitoring and investigation using AWS, Splunk, AWS WAF, GuardDuty, and CloudTrail, alongside cloud infrastructure and regulated-network practices.',
     highlights: [
-      'Vulnerability assessments and threat intelligence analysis',
-      'AWS EC2 deployment and administration',
-      'Splunk log-forwarding integration',
-      'Network security fundamentals - subnets, security groups, access controls',
+      'Security monitoring and investigation',
+      'AWS cloud and security tooling',
+      'Splunk log analysis',
+      'Cloud and network security fundamentals',
     ],
-    tags: ['AWS', 'Linux', 'Windows Server', 'Splunk', 'Cybersecurity', 'Networking'],
-    order: 1,
+    tags: ['AWS', 'Splunk', 'AWS WAF', 'GuardDuty', 'CloudTrail', 'Cybersecurity'],
+    order: 5,
   },
   {
     id: 'pipeline-plus',
     title: 'Legacy Systems Modernisation',
     period: '2023 - 2024',
-    location: 'Leidos, Glasgow',
+    employer: 'Leidos',
+    location: 'Glasgow, Scotland',
     description:
-      'Worked on modernising a legacy C and C++ application to Oracle Cloud Infrastructure. Independently researched and resolved complex technical challenges with limited prior documentation, and delivered a proof-of-concept that was presented to stakeholders with written and verbal recommendations. This rotation built real depth in systems-level programming and the realities of working with older codebases in a professional setting.',
+      'Investigated an unfamiliar legacy C application using older Oracle APIs, building an understanding of existing behaviour and researching modernisation approaches. Compared potential solutions, produced and tested a proof of concept, and documented recommendations for stakeholders.',
     highlights: [
-      'Refactored legacy C/C++ codebase for OCI deployment',
-      'Independent technical research and problem resolution',
-      'Proof-of-concept delivery with stakeholder presentation',
-      'Deep exposure to C, legacy Oracle APIs, and OCI',
+      'Legacy C and Oracle API investigation',
+      'Research and comparison of modernisation approaches',
+      'Proof-of-concept implementation and testing',
+      'Technical documentation and stakeholder recommendations',
     ],
-    tags: ['C', 'C++', 'Oracle Cloud', 'Legacy Modernisation', 'Systems Programming'],
-    order: 2,
+    tags: ['C', 'Oracle', 'Legacy Modernisation', 'Systems Investigation', 'Proof of Concept'],
+    order: 4,
   },
   {
     id: 'nws',
-    title: 'Public-Sector Frontend Delivery',
+    title: 'Next Flood Warning Service',
     period: '2024',
-    location: 'Leidos, Glasgow',
+    employer: 'Leidos',
+    location: 'Glasgow, Scotland',
     description:
-      'Delivered frontend features for a public-sector digital service using React and Node.js. Worked within a fully Agile team - participating in sprints, demos, and retrospectives - and frequently presented completed work directly to the customer. Received a Leidos STAR Award for agility, collaboration, and commitment after delivering under tight deadlines with evolving requirements and last-minute defect resolution.',
+      "Contributed to the UK's Next Flood Warning Service, delivering user-facing React and Node.js functionality through the full delivery lifecycle. Work included geospatial upload and validation workflows for custom flood warning areas, interactive mapping, file validation, defect investigation, stakeholder demonstrations, and production support.",
     highlights: [
-      'React and Node.js frontend delivery for a live public-sector service',
-      'Full Agile workflow - sprints, demos, retrospectives',
-      'Regular customer-facing presentations',
+      'Geospatial upload, validation, and display workflows using interactive mapping and AWS S3',
+      'React and Node.js feature delivery for a live public-sector service',
+      'Testing, defect investigation, and stakeholder demonstrations',
       'Leidos STAR Award recipient',
     ],
-    tags: ['React', 'Node.js', 'JavaScript', 'Agile', 'Git', 'Public Sector'],
+    tags: ['React', 'Node.js', 'JavaScript', 'AWS S3', 'Interactive Mapping', 'Public Sector'],
     order: 3,
   },
   {
     id: 'lava',
     title: 'Maritime Autonomy R&D',
-    period: '2024 - Present',
-    location: 'Leidos, Glasgow',
+    period: '2024 - 2026',
+    employer: 'Leidos',
+    location: 'Glasgow, Scotland',
     description:
-      'Currently working in a fluid R&D environment on an autonomous surface vessel system. The work involves self-directed research spikes into technologies that are new to the team, microservice development, middleware integration, and building engineering tooling to support simulation-based testing. This rotation forms the basis of my final-year university dissertations.',
+      'Contributed to maritime autonomy research and development through system investigation, simulation, log analysis, technical research, documentation, and knowledge sharing. The work supported engineering understanding and evaluation in a complex, evolving domain.',
     highlights: [
-      'Autonomous surface vessel software stack',
-      'Middleware-facing microservice development',
-      'Real-time observability dashboard for simulation environments',
-      'CI/CD pipeline setup with Bamboo, Docker, and Harbor',
-      'Self-managed research in a novel technical domain',
+      'System investigation and simulation support',
+      'Log analysis and technical research',
+      'Documentation and knowledge sharing',
+      'Independent learning in an unfamiliar engineering domain',
     ],
-    tags: ['Python', 'Microservices', 'Docker', 'CI/CD', 'R&D', 'Simulation', 'Middleware'],
-    order: 4,
+    tags: ['R&D', 'Simulation', 'Log Analysis', 'Technical Research', 'Documentation'],
+    order: 2,
   },
 ];

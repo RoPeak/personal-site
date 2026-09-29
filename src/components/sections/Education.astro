@@ -15,8 +15,8 @@ import SectionHeading from '../ui/SectionHeading.astro';
           <p class="text-sm font-semibold text-[var(--color-accent)]">{degree.institution}</p>
         </div>
         <div class="text-right shrink-0">
-          <span class="text-xs font-mono text-[var(--color-text-faint)] block">Expected</span>
-          <span class="text-xs font-mono text-[var(--color-text-muted)]">{degree.expectedGraduation}</span>
+          <span class="text-xs font-mono text-[var(--color-text-faint)] block">Graduated</span>
+          <span class="text-xs font-mono text-[var(--color-text-muted)]">{degree.graduation}</span>
         </div>
       </div>
       <p class="text-xs text-[var(--color-text-faint)] mt-2 mb-3">{degree.type}</p>
@@ -26,6 +26,7 @@ import SectionHeading from '../ui/SectionHeading.astro';
         </svg>
         <span class="text-xs font-semibold text-[var(--color-accent)]">{degree.standing}</span>
       </div>
+      <p class="text-xs text-[var(--color-text-muted)] mt-3">{degree.achievement}</p>
     </div>
 
     <!-- Modules collapsible -->
