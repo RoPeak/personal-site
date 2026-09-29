@@ -6,9 +6,9 @@ import { timeline } from '../data/timeline';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const focusAreas = [
-  'Cybersecurity operations and infrastructure',
+  'Full-stack product development and support',
+  'Public-sector product delivery',
   'Legacy systems modernisation',
-  'Public-sector frontend delivery',
   'Maritime autonomy R&D and engineering tooling',
 ];
 
@@ -18,7 +18,7 @@ const orderedTimeline = [...timeline].sort((a, b) => a.order - b.order);
 
 <BaseLayout
   title="About Ronan Peacock"
-  description="About Ronan Peacock - software engineer in Glasgow, graduate apprentice at Leidos, University of Glasgow student, and builder of practical software projects."
+  description="About Ronan Peacock - Full Stack Developer at Twizzit, software engineer in Glasgow, and First-Class University of Glasgow graduate."
   schemaMode="profile"
 >
   <div class="pt-28 pb-20">
@@ -30,15 +30,15 @@ const orderedTimeline = [...timeline].sort((a, b) => a.order - b.order);
             About Ronan Peacock
           </h1>
           <p class="text-lg text-[var(--color-text)] leading-relaxed max-w-3xl mb-4">
-            Ronan Peacock is a software engineer in Glasgow, currently working as a graduate
-            apprentice at Leidos while completing a BSc (Hons) in Software Engineering with
-            Human Computer Interaction at the University of Glasgow.
+            Ronan Peacock is a Full Stack Developer at Twizzit and a software engineer in Glasgow
+            with four years of previous full-time industry experience from Leidos, gained alongside
+            his BSc (Hons) in Software Engineering with Human-Computer Interaction at the University of Glasgow.
           </p>
           <p class="text-[var(--color-text-muted)] leading-relaxed max-w-3xl mb-4">
-            His work has spanned cybersecurity operations, legacy systems modernisation,
-            public-sector web delivery, and maritime autonomy R&amp;D. Across those placements,
-            the consistent theme has been practical engineering: understanding inherited systems
-            quickly, improving them safely, and delivering software that is usable by real teams.
+            At Twizzit, he works across frontend and backend systems to develop and support a SaaS
+            platform throughout the software development lifecycle. His Leidos experience spanned
+            product development, cybersecurity, legacy modernisation, and maritime autonomy R&amp;D,
+            with a consistent focus on understanding systems carefully and delivering useful software.
           </p>
           <p class="text-[var(--color-text-muted)] leading-relaxed max-w-3xl">
             Outside of work, he builds personal projects to deepen his understanding of software
@@ -66,9 +66,9 @@ const orderedTimeline = [...timeline].sort((a, b) => a.order - b.order);
               <p class="fact-value">{site.location}</p>
             </div>
             <div class="fact-row">
-              <span class="fact-label">Studying</span>
+              <span class="fact-label">Education</span>
               <p class="fact-value">{degree.title}</p>
-              <p class="fact-note">{degree.expectedGraduation}</p>
+              <p class="fact-note">First Class Honours, {degree.graduation}</p>
             </div>
           </div>
 
@@ -92,7 +92,7 @@ const orderedTimeline = [...timeline].sort((a, b) => a.order - b.order);
                   <h3 class="text-base font-semibold text-[var(--color-text)]">{entry.title}</h3>
                   <span class="mono-meta">{entry.period}</span>
                 </div>
-                <p class="mono-meta">{entry.location}</p>
+                <p class="mono-meta">{entry.employer} &middot; {entry.location}</p>
                 <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{entry.description}</p>
               </article>
             ))}
@@ -135,13 +135,13 @@ const orderedTimeline = [...timeline].sort((a, b) => a.order - b.order);
         <div class="grid md:grid-cols-2 gap-8">
           <div>
             <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-4">
-              Ronan Peacock is completing his degree through the Graduate Apprenticeship route,
-              combining full-time industry work with academic study. That structure has shaped
-              the site as a profile of practical, workplace-tested engineering rather than a
-              purely academic portfolio.
+              Ronan completed his degree through the Graduate Apprenticeship route, combining
+              full-time industry work at Leidos with academic study. That foundation shaped a
+              practical, workplace-tested approach to software engineering.
             </p>
             <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-              He is on track for first-class honours and is graduating in July 2026.
+              He graduated in 2026 with First Class Honours and received the award for the
+              highest overall GPA in his Software Engineering Graduate Apprenticeship cohort.
             </p>
           </div>
 

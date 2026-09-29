@@ -43,11 +43,11 @@
   <rect x="112" y="145" width="172" height="32" rx="16" fill="#e0f2fe"/>
   <text x="136" y="166" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="700" letter-spacing="1.4" fill="#0369a1">RONAN PEACOCK</text>
 
-  <text x="112" y="270" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="82" font-weight="800" fill="url(#name-grad)">Software Engineer</text>
-  <text x="112" y="343" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="82" font-weight="800" fill="url(#name-grad)">in Glasgow</text>
+  <text x="112" y="270" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="82" font-weight="800" fill="url(#name-grad)">Full Stack Developer</text>
+  <text x="112" y="343" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="82" font-weight="800" fill="url(#name-grad)">at Twizzit</text>
 
-  <text x="112" y="416" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="27" font-weight="500" fill="#334155">Graduate apprentice at Leidos and final-year</text>
-  <text x="112" y="454" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="27" font-weight="500" fill="#334155">University of Glasgow software engineering student.</text>
+  <text x="112" y="416" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="27" font-weight="500" fill="#334155">Software engineer with four years of industry experience.</text>
+  <text x="112" y="454" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="27" font-weight="500" fill="#334155">First-Class University of Glasgow graduate.</text>
 
   <rect x="112" y="495" width="238" height="42" rx="21" fill="#e0f2fe"/>
   <text x="138" y="522" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" font-weight="600" fill="#0369a1">ronan-peacock.com</text>

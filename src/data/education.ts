@@ -19,11 +19,13 @@ export interface Dissertation {
 }
 
 export const degree = {
-  title: 'BSc (Hons) Software Engineering with Human Computer Interaction',
+  title: 'BSc (Hons) Software Engineering with Human-Computer Interaction',
   institution: 'University of Glasgow',
   school: 'School of Computing Science',
-  expectedGraduation: 'July 2026',
-  standing: 'On track for first-class honours',
+  graduation: '2026',
+  standing: 'First Class Honours',
+  achievement:
+    'Highest overall GPA in the 2026 Software Engineering Graduate Apprenticeship cohort',
   type: 'Graduate Apprenticeship (integrated degree and industry placement)',
 } as const;
 
@@ -59,7 +61,7 @@ export const academicYears: AcademicYear[] = [
     modules: [
       { name: 'Professional Issues in the Workplace' },
       { name: 'Functional Programming' },
-      { name: 'Mobile Human Computer Interaction' },
+      { name: 'Mobile Human-Computer Interaction' },
       { name: 'Patient Centred Health Technology' },
       { name: 'Human Centred Security' },
       { name: 'Conversational Interfaces' },
